@@ -4,15 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Members | Duck Lab</title>
-  <link rel="stylesheet" href="../assets/style.css?v=2">
-  <link rel="icon" href="../favicon.ico?v=1">
+  <link rel="stylesheet" href="../assets/style.css?v=3" />
+  <link rel="icon" href="../favicon.ico?v=1" />
 </head>
+
 <body>
   <header class="wrap header">
     <div>
       <h1>Duck Lab</h1>
-      <p class="sub">Members</p>
+      <p class="sub">Department of ___, ___ University</p>
     </div>
+
     <nav class="nav">
       <a href="../">Home</a>
       <a href="../research/">Research</a>
@@ -23,17 +25,168 @@
   </header>
 
   <main class="wrap">
+    <!-- Intro / Team navigator -->
     <section class="card">
-      <h2>PI</h2>
-      <p><b>Prof. ___</b> — 짧은 소개 한 줄</p>
+      <div class="section-head">
+        <h2>Members</h2>
+        <p class="muted">팀별로 구분해두면 유지보수도 쉽고 “랩 조직도” 느낌이 남.</p>
+      </div>
+
+      <div class="pills">
+        <a class="pill" href="#pi">PI</a>
+        <a class="pill" href="#team-skin">Skin Immunity Team</a>
+        <a class="pill" href="#team-microbiome">Microbiome Team</a>
+        <a class="pill" href="#team-computation">Computation Team</a>
+        <a class="pill" href="#alumni">Alumni</a>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Lab Members</h2>
+    <!-- PI -->
+    <section id="pi" class="card">
+      <div class="section-head">
+        <h2>PI</h2>
+        <p class="muted">대표 소개 + 연구 키워드 3개 정도만 있어도 충분.</p>
+      </div>
+
+      <div class="member-grid" style="grid-template-columns: 1fr;">
+        <article class="member">
+          <div class="avatar">
+            <!-- 사진 쓰면 아래 img로 교체:
+            <img src="../assets/members/pi.jpg" alt="Prof. ___" />
+            -->
+            PI
+          </div>
+
+          <div class="member-body">
+            <h3 class="member-name">Prof. ___</h3>
+            <div class="member-meta">
+              <span class="badge2">Principal Investigator</span>
+              <span class="badge2">Team Lead</span>
+            </div>
+
+            <p class="member-bio">
+              한 줄 소개: epithelial biology와 skin immunity를 연결해서 ___를 연구합니다.
+            </p>
+
+            <div class="member-tags">
+              <span class="tag">Skin</span>
+              <span class="tag">Immunity</span>
+              <span class="tag">Host–microbe</span>
+            </div>
+
+            <div class="member-links">
+              <a href="../contact/">Email</a>
+              <a href="#" target="_blank" rel="noreferrer">Google Scholar</a>
+              <a href="#" target="_blank" rel="noreferrer">ORCID</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Team: Skin Immunity -->
+    <section id="team-skin" class="card">
+      <div class="section-head">
+        <h2>Skin Immunity Team</h2>
+        <p class="muted">예: barrier, IL-17 axis, epithelial–immune crosstalk</p>
+      </div>
+
+      <div class="member-grid">
+        <article class="member">
+          <div class="avatar">DW</div>
+          <!-- 사진 쓰면: <div class="avatar"><img src="../assets/members/duckkyun-woo.jpg" alt="Duckkyun Woo" /></div> -->
+          <div class="member-body">
+            <h3 class="member-name">Duckkyun Woo</h3>
+            <div class="member-meta">
+              <span class="badge2">MS/PhD track (예시)</span>
+              <span class="badge2">Skin Team</span>
+            </div>
+            <p class="member-bio">한 줄 소개: ___를 이용해 ___ 메커니즘을 파고듭니다.</p>
+            <div class="member-tags">
+              <span class="tag">Flow</span><span class="tag">Mouse</span><span class="tag">Cytokines</span>
+            </div>
+            <div class="member-links">
+              <a href="../contact/">Email</a>
+              <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="avatar">AB</div>
+          <div class="member-body">
+            <h3 class="member-name">A. B.</h3>
+            <div class="member-meta">
+              <span class="badge2">PhD Student</span>
+              <span class="badge2">Skin Team</span>
+            </div>
+            <p class="member-bio">한 줄 소개: ___ 모델에서 ___를 분석합니다.</p>
+            <div class="member-tags">
+              <span class="tag">scRNA-seq</span><span class="tag">Imaging</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Team: Microbiome -->
+    <section id="team-microbiome" class="card">
+      <div class="section-head">
+        <h2>Microbiome Team</h2>
+        <p class="muted">예: colonization, gnotobiotic, metabolite–immunity</p>
+      </div>
+
+      <div class="member-grid">
+        <article class="member">
+          <div class="avatar">CD</div>
+          <div class="member-body">
+            <h3 class="member-name">C. D.</h3>
+            <div class="member-meta">
+              <span class="badge2">Postdoc</span>
+              <span class="badge2">Microbiome Team</span>
+            </div>
+            <p class="member-bio">한 줄 소개: ___를 통해 host–microbe 상호작용을 봅니다.</p>
+            <div class="member-tags">
+              <span class="tag">16S</span><span class="tag">Culture</span><span class="tag">Metabolomics</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Team: Computation -->
+    <section id="team-computation" class="card">
+      <div class="section-head">
+        <h2>Computation Team</h2>
+        <p class="muted">예: single-cell analysis, pipelines, stats</p>
+      </div>
+
+      <div class="member-grid">
+        <article class="member">
+          <div class="avatar">EF</div>
+          <div class="member-body">
+            <h3 class="member-name">E. F.</h3>
+            <div class="member-meta">
+              <span class="badge2">Research Engineer</span>
+              <span class="badge2">Computation Team</span>
+            </div>
+            <p class="member-bio">한 줄 소개: 분석 파이프라인과 데이터 품질 관리를 담당.</p>
+            <div class="member-tags">
+              <span class="tag">Python</span><span class="tag">scRNA</span><span class="tag">QC</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Alumni -->
+    <section id="alumni" class="card">
+      <div class="section-head">
+        <h2>Alumni</h2>
+        <p class="muted">나중에 실서비스할 땐 여기도 은근 신뢰감 올라감.</p>
+      </div>
       <ul>
-        <li>PhD: ___</li>
-        <li>MS: ___</li>
-        <li>Intern: ___</li>
+        <li>G. H. — now at ___</li>
       </ul>
     </section>
   </main>
