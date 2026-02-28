@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OOO Lab</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <header class="wrap header">
+    <div>
+      <h1>OOO Lab</h1>
+      <p class="sub">Department of ___, ___ University</p>
+    </div>
+
+    <nav class="nav">
+      <a href="#research">Research</a>
+      <a href="#members">Members</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section id="research" class="card">
+      <h2>Research</h2>
+      <p>여기에 연구실 한 문단 소개. 키워드 3개만 박아도 됨.</p>
+      <ul>
+        <li>Theme 1: ___</li>
+        <li>Theme 2: ___</li>
+        <li>Theme 3: ___</li>
+      </ul>
+    </section>
+
+    <section id="members" class="card">
+      <h2>Members</h2>
+      <ul>
+        <li><b>PI</b>: ___</li>
+        <li><b>PhD</b>: ___</li>
+        <li><b>MS</b>: ___</li>
+        <li><b>Intern</b>: ___</li>
+      </ul>
+    </section>
+
+    <section id="publications" class="card">
+      <h2>Publications</h2>
+      <ol>
+        <li>Author. Title. Journal. Year.</li>
+        <li>Author. Title. Journal. Year.</li>
+      </ol>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: ___@___</p>
+      <p>Address: ___</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <small>© <span id="y"></span> OOO Lab</small>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
