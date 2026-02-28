@@ -30,9 +30,22 @@ h2 { margin: 0 0 10px; font-size: 22px; }
 .hero-lead { margin: 0 0 14px; opacity: 0.9; }
 
 .cta { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 6px; }
-.btn { display: inline-block; text-decoration: none; padding: 10px 12px; border-radius: 12px; border: 1px solid #eee; background: #111; color: #fff; }
-.btn.ghost { background: #fff; color: #111; }
-.btn:hover { filter: brightness(0.98); }
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #fff;
+  color: #111;
+}
+.btn.ghost{
+  background: #fff;
+  color: #111;
+}
+.btn:hover{
+  border-color: #ddd;
+}
 
 .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .badge { font-size: 13px; padding: 6px 10px; border-radius: 999px; background: #fff; border: 1px solid #eee; }
