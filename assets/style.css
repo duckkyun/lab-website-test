@@ -125,6 +125,11 @@ h2 { margin: 0 0 10px; font-size: 22px; }
   object-fit: cover;
   display: block;
 }
+.avatar-lg{
+  width: 132px;
+  height: 156px;
+  border-radius: 18px;
+}
 
 .member-body{ min-width: 0; }
 .member-name{ margin: 0; font-size: 16px; }
