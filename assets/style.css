@@ -465,6 +465,30 @@ button:focus-visible {
   margin-bottom: 18px;
 }
 
+.alumni-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.alumni-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.alumni-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.alumni-degree {
+  margin: 6px 0 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .timeline {
   display: grid;
   gap: 14px;
@@ -640,7 +664,8 @@ button:focus-visible {
   .quick-facts,
   .path-grid,
   .people-grid,
-  .team-facts {
+  .team-facts,
+  .alumni-grid {
     grid-template-columns: 1fr;
   }
 
