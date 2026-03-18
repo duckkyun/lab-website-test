@@ -15,7 +15,8 @@
         <h1 class="brand-title">Duck Lab</h1>
         <p class="brand-subtitle">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
       </div>
-      <nav class="site-menu" aria-label="Primary">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+      <nav id="site-menu" class="site-menu" aria-label="Primary">
         <a class="active" href="./">Home</a>
         <a href="research/">Research</a>
         <a href="members/">Members</a>
@@ -197,6 +198,7 @@
     </div>
   </footer>
 
+  <script src="assets/site.js?v=1"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>

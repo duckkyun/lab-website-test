@@ -61,9 +61,9 @@ a:hover {
 }
 
 .header-shell {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -86,11 +86,28 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .site-menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .site-menu a {
@@ -260,7 +277,7 @@ a:hover {
 
 .section-note {
   margin: 0;
-  max-width: 54ch;
+  max-width: 72ch;
   color: var(--muted);
 }
 
@@ -280,6 +297,13 @@ a:hover {
   border: 1px solid var(--line);
   border-radius: 22px;
   background: var(--surface);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.panel:hover {
+  background: var(--accent-soft);
+  border-color: #d8e5ff;
+  transform: translateY(-2px);
 }
 
 .panel h3 {
@@ -301,8 +325,8 @@ a:hover {
 }
 
 .accent-panel {
-  background: var(--accent-soft);
-  border-color: #d8e5ff;
+  background: var(--surface);
+  border-color: var(--line);
 }
 
 .simple-list,
@@ -465,12 +489,31 @@ a:hover {
 
 @media (max-width: 960px) {
   .header-shell {
-    flex-direction: column;
     align-items: stretch;
   }
 
+  .menu-toggle {
+    display: inline-flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
   .site-menu {
+    grid-column: 1 / -1;
+    grid-row: 2;
     justify-content: flex-start;
+    padding-top: 12px;
+    margin-top: 4px;
+    border-top: 1px solid var(--line);
+  }
+
+  html.js-ready .site-menu {
+    display: none;
+  }
+
+  html.js-ready .site-menu.is-open {
+    display: flex;
   }
 
   .hero,
@@ -505,7 +548,10 @@ a:hover {
   }
 
   .site-menu a {
-    flex: 1 1 calc(50% - 10px);
+    width: 100%;
+    justify-content: flex-start;
+    border-color: var(--line);
+    border-radius: 14px;
   }
 
   .panel-grid,
@@ -528,11 +574,6 @@ a:hover {
 }
 
 @media (max-width: 520px) {
-  .site-menu a {
-    width: 100%;
-    flex-basis: 100%;
-  }
-
   .page-shell {
     padding-top: 24px;
     padding-bottom: 56px;
