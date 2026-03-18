@@ -13,9 +13,18 @@ document.querySelectorAll(".menu-toggle").forEach((button) => {
     button.setAttribute("aria-expanded", "false");
   };
 
+  const openMenu = () => {
+    menu.classList.add("is-open");
+    button.setAttribute("aria-expanded", "true");
+  };
+
   button.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("is-open");
-    button.setAttribute("aria-expanded", String(isOpen));
+    const isOpen = menu.classList.contains("is-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   menu.querySelectorAll("a").forEach((link) => {
@@ -28,6 +37,22 @@ document.querySelectorAll(".menu-toggle").forEach((button) => {
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 960) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (window.innerWidth > 960) {
+      return;
+    }
+
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
       closeMenu();
     }
   });
