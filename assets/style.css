@@ -42,6 +42,12 @@ a:hover {
   text-decoration: underline;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(26, 115, 232, 0.28);
+  outline-offset: 3px;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -361,6 +367,40 @@ a:hover {
   font-size: 0.88rem;
 }
 
+.path-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.path-step {
+  height: 100%;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+}
+
+.path-step h3 {
+  margin: 0 0 10px;
+  font-size: 1.03rem;
+  line-height: 1.35;
+}
+
+.path-step p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.path-index {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .person {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr);
@@ -395,7 +435,7 @@ a:hover {
 .people-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .mini-card {
@@ -413,6 +453,16 @@ a:hover {
 .mini-role {
   margin: 6px 0 12px;
   color: var(--muted);
+}
+
+.mini-card p:last-of-type {
+  color: var(--muted);
+}
+
+.team-facts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
 .timeline {
@@ -551,12 +601,14 @@ a:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .path-grid,
+  .team-facts,
   .quick-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .people-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .section-heading {
@@ -585,7 +637,10 @@ a:hover {
 
   .panel-grid,
   .panel-grid.two,
-  .quick-facts {
+  .quick-facts,
+  .path-grid,
+  .people-grid,
+  .team-facts {
     grid-template-columns: 1fr;
   }
 
