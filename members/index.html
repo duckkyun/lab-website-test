@@ -1,144 +1,134 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Members | Duck Lab</title>
-  <link rel="stylesheet" href="../assets/style.css?v=6" />
+  <link rel="stylesheet" href="../assets/style.css?v=7" />
   <link rel="icon" href="../favicon.ico?v=1" />
 </head>
-
 <body>
-  <header class="wrap header">
-    <div>
-      <h1>Duck Lab</h1>
-      <p class="sub">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="brand">
+        <h1 class="brand-title">Duck Lab</h1>
+        <p class="brand-subtitle">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+      </div>
+      <nav class="site-menu" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="../research/">Research</a>
+        <a class="active" href="../members/">Members</a>
+        <a href="../publications/">Publications</a>
+        <a href="../news/">News</a>
+        <a href="../contact/">Contact</a>
+      </nav>
     </div>
-
-    <nav class="nav">
-      <a href="../">Home</a>
-      <a href="../research/">Research</a>
-      <a class="active" href="../members/">Members</a>
-      <a href="../publications/">Publications</a>
-      <a href="../contact/">Contact</a>
-    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <div class="section-head">
-        <h2>Members</h2>
-        <p class="muted">Grouping people by role or team makes the page easier to scan.</p>
-      </div>
-
-      <div class="pills">
-        <a class="pill" href="#pi">PI</a>
-        <a class="pill" href="#team-skin">Current Team</a>
-        <a class="pill" href="#alumni">Alumni</a>
-      </div>
+  <main class="page-shell">
+    <section class="section">
+      <p class="eyebrow">Members</p>
+      <h2 class="page-title">People in the lab</h2>
+      <p class="lead">The members page follows a calm Google Sites style layout: PI first, current lab members next, then alumni in a simpler list.</p>
     </section>
 
-    <section id="pi" class="card">
-      <div class="section-head">
-        <h2>PI</h2>
-        <p class="muted">Research interests, academic background, and contact information are collected here.</p>
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PI</p>
+          <h2 class="section-title">Ji-Hwan Ryu, Ph.D.</h2>
+        </div>
+        <p class="section-note">Research interests, academic background, and contact information are collected in one place.</p>
       </div>
 
-      <div class="member-grid" style="grid-template-columns: 1fr;">
-        <article class="member">
-          <div class="avatar avatar-lg">
-            <img src="../assets/extracted/p1_1_Im0.jpg" alt="Ji-Hwan Ryu" />
+      <article class="person">
+        <div class="person-photo">
+          <img src="../assets/extracted/p1_1_Im0.jpg" alt="Ji-Hwan Ryu portrait" />
+        </div>
+        <div class="person-body">
+          <h3>Principal Investigator</h3>
+          <p class="person-meta">Professor, Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+          <p>Professor Ji-Hwan Ryu studies how gut and skin commensal microbiota regulate immune homeostasis, tissue development, and inflammatory disease. His group develops gnotobiotic animal models and microbiome-based experimental systems to uncover the mechanisms linking host tissues and resident microbes.</p>
+          <p>He received his Ph.D. in Immunology from Yonsei University after M.S. and B.S. training at Korea University. He has served as professor at Yonsei University College of Medicine since 2020, following appointments as associate professor, assistant professor, research professor, staff scientist, and postdoctoral fellow.</p>
+          <div class="chip-row">
+            <span class="chip">Microbiome</span>
+            <span class="chip">Immunology</span>
+            <span class="chip">Host-microbe</span>
+            <span class="chip">Yonsei</span>
           </div>
+          <div class="link-row">
+            <a href="mailto:yjh@yuhs.ac">Email</a>
+            <a href="../publications/">Publications</a>
+            <a href="../contact/">Contact</a>
+          </div>
+        </div>
+      </article>
+    </section>
 
-          <div class="member-body">
-            <h3 class="member-name">Ji-Hwan Ryu, Ph.D.</h3>
-            <div class="member-meta">
-              <span class="badge2">Principal Investigator</span>
-              <span class="badge2">Professor</span>
-            </div>
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Current team</p>
+          <h2 class="section-title">Lab members</h2>
+        </div>
+        <p class="section-note">Use short profile cards so the page stays easy to scan and easy to update.</p>
+      </div>
 
-            <p class="member-bio">
-              Professor Ji-Hwan Ryu studies how gut and skin commensal microbiota regulate immune homeostasis, tissue development, and inflammatory disease. His group develops gnotobiotic animal models and microbiome-based experimental systems to uncover the mechanisms linking host tissues and resident microbes.
-            </p>
+      <div class="people-grid">
+        <article class="mini-card">
+          <h3>Duckkyun Woo</h3>
+          <p class="mini-role">MS/PhD track · Graduate Researcher</p>
+          <p>Add a one-line project summary here, for example the member's focus in microbiome, immunology, or animal model work.</p>
+          <div class="chip-row">
+            <span class="chip">Flow</span>
+            <span class="chip">Mouse</span>
+            <span class="chip">Cytokines</span>
+          </div>
+        </article>
 
-            <p class="member-bio">
-              He received his Ph.D. in Immunology from Yonsei University after M.S. and B.S. training at Korea University. He has served as professor at Yonsei University College of Medicine since 2020, following appointments as associate professor, assistant professor, research professor, staff scientist, and postdoctoral fellow.
-            </p>
-
-            <div class="member-tags">
-              <span class="tag">Microbiome</span>
-              <span class="tag">Immunology</span>
-              <span class="tag">Host-microbe</span>
-              <span class="tag">Yonsei</span>
-            </div>
-
-            <div class="member-links">
-              <a href="mailto:yjh@yuhs.ac">Email</a>
-              <a href="#" target="_blank" rel="noreferrer">Google Scholar</a>
-              <a href="#" target="_blank" rel="noreferrer">ORCID</a>
-            </div>
+        <article class="mini-card">
+          <h3>A. B.</h3>
+          <p class="mini-role">PhD Student · Lab Member</p>
+          <p>Use this space for each member's short bio, methods, and main research question.</p>
+          <div class="chip-row">
+            <span class="chip">scRNA-seq</span>
+            <span class="chip">Imaging</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="team-skin" class="card">
-      <div class="section-head">
-        <h2>Current Team</h2>
-        <p class="muted">You can organize members here by role, project, or sub-team as the lab grows.</p>
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Alumni</p>
+          <h2 class="section-title">Former lab members</h2>
+        </div>
+        <p class="section-note">Keep alumni as a simple text list unless the lab later needs a richer archive.</p>
       </div>
 
-      <div class="member-grid">
-        <article class="member">
-          <div class="avatar">DW</div>
-          <div class="member-body">
-            <h3 class="member-name">Duckkyun Woo</h3>
-            <div class="member-meta">
-              <span class="badge2">MS/PhD track</span>
-              <span class="badge2">Graduate Researcher</span>
-            </div>
-            <p class="member-bio">Add a one-line project summary here, for example the member's focus in microbiome, immunology, or animal model work.</p>
-            <div class="member-tags">
-              <span class="tag">Flow</span><span class="tag">Mouse</span><span class="tag">Cytokines</span>
-            </div>
-            <div class="member-links">
-              <a href="../contact/">Email</a>
-              <a href="#" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="member">
-          <div class="avatar">AB</div>
-          <div class="member-body">
-            <h3 class="member-name">A. B.</h3>
-            <div class="member-meta">
-              <span class="badge2">PhD Student</span>
-              <span class="badge2">Lab Member</span>
-            </div>
-            <p class="member-bio">Use this space for each member's short bio, methods, and main research question.</p>
-            <div class="member-tags">
-              <span class="tag">scRNA-seq</span><span class="tag">Imaging</span>
-            </div>
-          </div>
-        </article>
+      <div class="panel">
+        <ul class="simple-list">
+          <li>Add former lab members here with their current positions.</li>
+        </ul>
       </div>
-    </section>
-
-    <section id="alumni" class="card">
-      <div class="section-head">
-        <h2>Alumni</h2>
-        <p class="muted">A short line about where alumni moved next adds credibility and context.</p>
-      </div>
-      <ul>
-        <li>Add former lab members here with their current positions.</li>
-      </ul>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <small>&copy; <span id="y"></span> Duck Lab</small>
+  <footer>
+    <div class="footer-shell">
+      <div>
+        <h2 class="footer-title">Duck Lab</h2>
+        <p class="footer-text">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+      </div>
+      <div>
+        <p class="footer-text">&copy; <span id="y"></span> Duck Lab</p>
+      </div>
+    </div>
   </footer>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

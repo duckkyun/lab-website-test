@@ -1,46 +1,132 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research | Duck Lab</title>
-  <link rel="stylesheet" href="../assets/style.css?v=6">
-  <link rel="icon" href="../favicon.ico?v=1">
+  <link rel="stylesheet" href="../assets/style.css?v=7" />
+  <link rel="icon" href="../favicon.ico?v=1" />
 </head>
 <body>
-  <header class="wrap header">
-    <div>
-      <h1>Duck Lab</h1>
-      <p class="sub">Research</p>
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="brand">
+        <h1 class="brand-title">Duck Lab</h1>
+        <p class="brand-subtitle">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+      </div>
+      <nav class="site-menu" aria-label="Primary">
+        <a href="../">Home</a>
+        <a class="active" href="../research/">Research</a>
+        <a href="../members/">Members</a>
+        <a href="../publications/">Publications</a>
+        <a href="../news/">News</a>
+        <a href="../contact/">Contact</a>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="../">Home</a>
-      <a class="active" href="../research/">Research</a>
-      <a href="../members/">Members</a>
-      <a href="../publications/">Publications</a>
-      <a href="../contact/">Contact</a>
-    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Research Themes</h2>
-      <ul>
-        <li><b>Gut microbiome and immune homeostasis</b> We examine how commensal microbes help establish balanced host immune responses.</li>
-        <li><b>Skin microbiota and inflammatory disease</b> We study how skin dysbiosis and early-life microbial priming contribute to allergic inflammation.</li>
-        <li><b>Tissue-resident cell regulation by microbiota</b> We aim to define resident cell populations whose development is controlled by commensal microbes.</li>
-      </ul>
+  <main class="page-shell">
+    <section class="section">
+      <p class="eyebrow">Research</p>
+      <h2 class="page-title">Research areas and experimental approaches</h2>
+      <p class="lead">This page is designed like a Google Sites section page: concise, scannable, and easy to update when research directions evolve.</p>
     </section>
 
-    <section class="card">
-      <h2>Methods / Platforms</h2>
-      <p>Key approaches include germ-free and gnotobiotic animal models, defined commensal colonization, dysbiosis models, and microbiome-based functional analysis.</p>
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Themes</p>
+          <h2 class="section-title">Three core questions</h2>
+        </div>
+        <p class="section-note">Each block explains what the lab studies and why it matters.</p>
+      </div>
+
+      <div class="panel-grid">
+        <article class="panel">
+          <h3>Gut microbiome and immune homeostasis</h3>
+          <p>We examine how commensal microbes help establish balanced host immune responses and maintain healthy tissue physiology.</p>
+          <div class="chip-row">
+            <span class="chip">gut microbiome</span>
+            <span class="chip">immune homeostasis</span>
+            <span class="chip">host physiology</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>Skin microbiota and inflammatory disease</h3>
+          <p>We study how skin dysbiosis and early-life microbial priming contribute to allergic inflammation and disease susceptibility.</p>
+          <div class="chip-row">
+            <span class="chip">skin dysbiosis</span>
+            <span class="chip">allergic inflammation</span>
+            <span class="chip">early life</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>Tissue-resident cell regulation by microbiota</h3>
+          <p>We aim to define resident cell populations whose development, differentiation, and function are controlled by commensal microbes.</p>
+          <div class="chip-row">
+            <span class="chip">resident cells</span>
+            <span class="chip">development</span>
+            <span class="chip">microbiota</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Methods</p>
+          <h2 class="section-title">Experimental platforms</h2>
+        </div>
+        <p class="section-note">The content here mirrors the simple methods overview often used in academic Google Sites pages.</p>
+      </div>
+
+      <div class="panel-grid two">
+        <article class="panel">
+          <h3>Model systems</h3>
+          <ul class="simple-list">
+            <li>Germ-free and gnotobiotic animal models</li>
+            <li>Defined commensal colonization systems</li>
+            <li>Dysbiosis-driven inflammatory disease models</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3>Analysis and readouts</h3>
+          <ul class="simple-list">
+            <li>Microbiome-based functional analysis</li>
+            <li>Host immune and tissue phenotyping</li>
+            <li>Comparative studies across gut and skin systems</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel accent-panel">
+        <p class="eyebrow">Why it matters</p>
+        <h2 class="section-title">From commensal balance to disease mechanisms</h2>
+        <p class="lead">Our work aims to clarify how tissue resident cells and host-microbiome interactions influence homeostasis, inflammatory disease, and long-term tissue function.</p>
+      </div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <small>&copy; <span id="y"></span> Duck Lab</small>
+  <footer>
+    <div class="footer-shell">
+      <div>
+        <h2 class="footer-title">Duck Lab</h2>
+        <p class="footer-text">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+      </div>
+      <div>
+        <p class="footer-text">&copy; <span id="y"></span> Duck Lab</p>
+      </div>
+    </div>
   </footer>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -1,38 +1,73 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Duck Lab</title>
-  <link rel="stylesheet" href="../assets/style.css?v=6">
-  <link rel="icon" href="../favicon.ico?v=1">
+  <link rel="stylesheet" href="../assets/style.css?v=7" />
+  <link rel="icon" href="../favicon.ico?v=1" />
 </head>
 <body>
-  <header class="wrap header">
-    <div>
-      <h1>Duck Lab</h1>
-      <p class="sub">Contact</p>
+  <header class="site-header">
+    <div class="header-shell">
+      <div class="brand">
+        <h1 class="brand-title">Duck Lab</h1>
+        <p class="brand-subtitle">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+      </div>
+      <nav class="site-menu" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="../research/">Research</a>
+        <a href="../members/">Members</a>
+        <a href="../publications/">Publications</a>
+        <a href="../news/">News</a>
+        <a class="active" href="../contact/">Contact</a>
+      </nav>
     </div>
-    <nav class="nav">
-      <a href="../">Home</a>
-      <a href="../research/">Research</a>
-      <a href="../members/">Members</a>
-      <a href="../publications/">Publications</a>
-      <a class="active" href="../contact/">Contact</a>
-    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Get in touch</h2>
-      <p>Email: yjh@yuhs.ac</p>
-      <p>Address: Avison Biomedical Research Center (ABMRC), 50-1 Yonsei-ro, Seodaemun-gu, Seoul 03722, Korea</p>
+  <main class="page-shell">
+    <section class="section">
+      <p class="eyebrow">Contact</p>
+      <h2 class="page-title">Get in touch</h2>
+      <p class="lead">The contact page is intentionally simple, with enough information for prospective students, collaborators, and visitors to act immediately.</p>
+    </section>
+
+    <section class="section">
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3>Lab contact</h3>
+          <p>Email: <a href="mailto:yjh@yuhs.ac">yjh@yuhs.ac</a></p>
+          <p>Address: Avison Biomedical Research Center (ABMRC), 50-1 Yonsei-ro, Seodaemun-gu, Seoul 03722, Korea</p>
+          <div class="link-row">
+            <a href="mailto:yjh@yuhs.ac">Email the lab</a>
+            <a href="https://maps.google.com/?q=Avison+Biomedical+Research+Center+Yonsei+University" target="_blank" rel="noreferrer">Open map</a>
+          </div>
+        </article>
+
+        <article class="contact-card accent-panel">
+          <h3>Prospective students</h3>
+          <p>We welcome students and trainees interested in microbiome research, mucosal immunology, and tissue-resident cell biology.</p>
+          <p>Please send a short CV and a brief note about your research interests with the subject line:</p>
+          <p><b>[Duck Lab] Prospective student - Your Name</b></p>
+        </article>
+      </div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <small>&copy; <span id="y"></span> Duck Lab</small>
+  <footer>
+    <div class="footer-shell">
+      <div>
+        <h2 class="footer-title">Duck Lab</h2>
+        <p class="footer-text">Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+      </div>
+      <div>
+        <p class="footer-text">&copy; <span id="y"></span> Duck Lab</p>
+      </div>
+    </div>
   </footer>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
