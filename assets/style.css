@@ -488,6 +488,23 @@ a:hover {
   margin: 0;
 }
 
+.footer-meta {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.footer-meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.footer-meta a:hover {
+  color: var(--text);
+}
+
 @media (max-width: 960px) {
   .header-shell {
     align-items: stretch;
