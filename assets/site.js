@@ -1,5 +1,43 @@
 document.documentElement.classList.add("js-ready");
 
+const createPublicationListItem = (publication) => {
+  const item = document.createElement("li");
+
+  const authors = document.createElement("b");
+  authors.textContent = publication.authors;
+  item.append(authors, " ");
+
+  const titleLink = document.createElement("a");
+  titleLink.href = `https://doi.org/${publication.doi}`;
+  titleLink.target = "_blank";
+  titleLink.rel = "noreferrer";
+  titleLink.textContent = publication.title;
+  item.append(titleLink, ". ");
+
+  const journal = document.createElement("i");
+  journal.textContent = publication.journal;
+  item.append(journal, `. ${publication.year}.`);
+
+  return item;
+};
+
+const renderPublicationLists = () => {
+  const publications = Array.isArray(window.ryuLabPublications) ? window.ryuLabPublications : [];
+
+  if (!publications.length) {
+    return;
+  }
+
+  document.querySelectorAll("[data-publications-list]").forEach((list) => {
+    const limit = Number.parseInt(list.dataset.publicationsLimit ?? "", 10);
+    const visiblePublications = Number.isNaN(limit) ? publications : publications.slice(0, limit);
+
+    list.replaceChildren(...visiblePublications.map(createPublicationListItem));
+  });
+};
+
+renderPublicationLists();
+
 document.querySelectorAll(".menu-toggle").forEach((button) => {
   const menuId = button.getAttribute("aria-controls");
   const menu = document.getElementById(menuId);
