@@ -106,6 +106,7 @@ button:focus-visible {
   font: inherit;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .site-menu {
@@ -127,11 +128,15 @@ button:focus-visible {
   border: 1px solid transparent;
   color: var(--muted);
   text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .site-menu a:hover {
+  background: var(--soft);
   border-color: var(--line);
+  color: var(--text);
   text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .site-menu a.active {
@@ -213,17 +218,27 @@ button:focus-visible {
   color: #ffffff;
   font-weight: 600;
   text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .button:hover {
   text-decoration: none;
-  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(26, 115, 232, 0.14);
 }
 
 .button.ghost {
   background: #ffffff;
   color: var(--accent);
   border-color: var(--line);
+}
+
+.button.ghost:hover,
+.menu-toggle:hover {
+  background: var(--soft);
+  border-color: var(--line);
+  color: var(--text);
+  transform: translateY(-1px);
 }
 
 .quick-facts {
@@ -308,13 +323,6 @@ button:focus-visible {
   border: 1px solid var(--line);
   border-radius: 22px;
   background: var(--surface);
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.panel:hover {
-  background: var(--accent-soft);
-  border-color: #d8e5ff;
-  transform: translateY(-2px);
 }
 
 .panel h3 {
