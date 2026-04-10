@@ -4,5 +4,5 @@ If you find any problems in lab website or want to modify anything else, feel fr
 Address : duckkyun29@gmail.com
 
 ## Acknowledgement
-This web site is supervised by [Park Yeon Su](https://github.com/kitewatermelon) and [Hyungchan Ahn](https://github.com/hyeongchanan).
+This web site is supervised by [Park Yeon Su](https://github.com/kitewatermelon) and [Hyungchan Ahn](https://github.com/hyeongchanan).<br>
 Mental support from Soeun Park is essential for my whole project.
