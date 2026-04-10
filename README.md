@@ -5,3 +5,4 @@ Address : duckkyun29@gmail.com
 
 ## Acknowledgement
 This web site is supervised by [Park Yeon Su](https://github.com/kitewatermelon) and [Hyungchan Ahn](https://github.com/hyeongchanan).
+Mental support from Soeun Park is essential for my whole project.
