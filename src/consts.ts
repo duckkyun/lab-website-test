@@ -6,6 +6,8 @@ export const SITE = {
   description:
     'Ryu Lab studies microbiome, immune homeostasis, and tissue-resident cell biology at Yonsei University College of Medicine.',
   repo: 'https://github.com/duckkyun/lab-website-test',
+  issues: 'https://github.com/duckkyun/lab-website-test/issues/new',
+  maintainerEmail: 'duckkyun29@gmail.com',
 } as const;
 
 // Paths are relative to the site base; Header prefixes BASE_URL.
