@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import PublicationList from '../components/PublicationList.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Publications"
+  description="Selected corresponding-author publications from Ji-Hwan Ryu and Ryu Lab, with direct DOI links."
+>
+  <section class="section">
+    <p class="eyebrow">Publications</p>
+    <h2 class="page-title">Selected publications</h2>
+    <p class="lead">Highlighted here are corresponding-author publications from Ji-Hwan Ryu and collaborators, with direct DOI links for quick access.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Corresponding author</p>
+        <h2 class="section-title">Featured papers</h2>
+      </div>
+      <p class="section-note">Selected publications below are papers with Ji-Hwan Ryu as corresponding author, listed in reverse chronological order.</p>
+    </div>
+
+    <div class="panel">
+      <PublicationList />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel-grid two">
+      <article class="panel">
+        <h3>Recent directions</h3>
+        <ul class="simple-list">
+          <li>Skin microbiota and host communication</li>
+          <li>Airway and mucosal inflammatory regulation</li>
+          <li>Microbe-dependent immune priming in early life</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h3>Explore more</h3>
+        <ul class="simple-list">
+          <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=Ji-Hwan+Ryu%5BAuthor%5D+AND+yonsei%5Bad%5D" target="_blank" rel="noreferrer">Search Ji-Hwan Ryu on PubMed</a></li>
+        </ul>
+        <p>Each paper title above links directly to its DOI page for citation details and full-text access options.</p>
+      </article>
+    </div>
+  </section>
+</Base>

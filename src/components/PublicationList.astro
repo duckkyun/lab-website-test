@@ -1,0 +1,24 @@
+---
+import { publications } from '../data/publications';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const items = typeof limit === 'number' ? publications.slice(0, limit) : publications;
+---
+
+<ol class="publication-list">
+  {
+    items.map((pub) => (
+      <li>
+        <b>{pub.authors}</b>{' '}
+        <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noreferrer">
+          {pub.title}
+        </a>
+        . <i>{pub.journal}</i>. {pub.year}.
+      </li>
+    ))
+  }
+</ol>

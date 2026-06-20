@@ -1,0 +1,17 @@
+# build output
+dist/
+# dependencies
+node_modules/
+# astro
+.astro/
+# logs
+npm-debug.log*
+# env
+.env
+.env.production
+# os
+.DS_Store
+# QA / preview artifacts (screenshots saved at repo root)
+.playwright-mcp/
+/*.jpeg
+/*.png

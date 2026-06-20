@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title="Members" description="Meet Ji-Hwan Ryu and the current members of Ryu Lab at Yonsei University College of Medicine.">
+  <section class="section">
+    <p class="eyebrow">Members</p>
+    <h2 class="page-title">People in the lab</h2>
+    <p class="lead">Ryu Lab brings together postdoctoral, doctoral, integrated Ph.D., and research staff working on host-microbiome interactions and immune homeostasis.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">PI</p>
+        <h2 class="section-title">Ji-Hwan Ryu, Ph.D.</h2>
+      </div>
+      <p class="section-note">Research background, academic training, and contact information for the principal investigator.</p>
+    </div>
+
+    <article class="person">
+      <div class="person-photo">
+        <img src={base + 'images/ji-hwan-ryu.jpg'} alt="Ji-Hwan Ryu portrait" />
+      </div>
+      <div class="person-body">
+        <h3>Principal Investigator</h3>
+        <p class="person-meta">Professor, Department of Biomedical Sciences, Yonsei University College of Medicine</p>
+        <p>Professor Ji-Hwan Ryu studies how gut and skin commensal microbiota regulate immune homeostasis, tissue development, and inflammatory disease. His group develops gnotobiotic animal models and microbiome-based experimental systems to uncover the mechanisms linking host tissues and resident microbes.</p>
+        <p>He received his Ph.D. in Immunology from Yonsei University after M.S. and B.S. training at Korea University. He has served as professor at Yonsei University College of Medicine since 2020, following appointments as associate professor, assistant professor, research professor, staff scientist, and postdoctoral fellow.</p>
+        <div class="chip-row">
+          <span class="chip">Microbiome</span>
+          <span class="chip">Immunology</span>
+          <span class="chip">Host-microbe</span>
+          <span class="chip">Yonsei</span>
+        </div>
+        <div class="link-row">
+          <a href="mailto:yjh@yuhs.ac">Email</a>
+          <a href={base + 'publications/'}>Publications</a>
+          <a href={base + 'docs/ji-hwan-ryu-cv.pdf'} target="_blank" rel="noreferrer">CV (PDF)</a>
+          <a href={base + 'contact/'}>Contact</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Current team</p>
+        <h2 class="section-title">Lab members</h2>
+      </div>
+      <p class="section-note">The current team includes six members in addition to the PI, spanning postdoctoral, doctoral, integrated Ph.D., and research staff roles.</p>
+    </div>
+
+    <div class="quick-facts team-facts">
+      <article class="fact">
+        <p class="fact-label">Postdoctoral fellows</p>
+        <p class="fact-value">2</p>
+      </article>
+      <article class="fact">
+        <p class="fact-label">Ph.D. students</p>
+        <p class="fact-value">1</p>
+      </article>
+      <article class="fact">
+        <p class="fact-label">Integrated Ph.D. students</p>
+        <p class="fact-value">2</p>
+      </article>
+      <article class="fact">
+        <p class="fact-label">Researchers</p>
+        <p class="fact-value">1</p>
+      </article>
+    </div>
+
+    <div class="people-grid">
+      <article class="mini-card">
+        <div class="member-photo">
+          <span class="member-photo-placeholder">Photo</span>
+        </div>
+        <h3>Jimin Cha</h3>
+        <p class="mini-role">Postdoctoral Fellow</p>
+        <p class="member-summary">Works on skin microbiota, epithelial signaling, and allergic inflammation across early-life and adult contexts.</p>
+        <div class="member-links" aria-label="Jimin Cha links">
+          <a class="icon-link" href="https://www.ibric.org/bric/hanbitsa/han-interview.do?mode=view&amp;id=92072&amp;authorId=44507#!/list" target="_blank" rel="noreferrer" aria-label="Jimin Cha interview">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 3h6v6h-2V6.41l-8.29 8.3-1.42-1.42 8.3-8.29H14V3Zm3 10v7H4V7h7v2H6v9h9v-5h2Z"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="member-photo">
+          <span class="member-photo-placeholder">Photo</span>
+        </div>
+        <h3>Minsoo Kyung</h3>
+        <p class="mini-role">Postdoctoral Fellow</p>
+        <p class="member-summary">Received a Ph.D. from Seoul National University in the <a href="https://biosci.snu.ac.kr/people/faculty?mode=view&amp;profidx=51" target="_blank" rel="noreferrer">Won-Jae Lee lab</a> and joined Ryu Lab as a postdoctoral fellow.</p>
+      </article>
+
+      <article class="mini-card">
+        <div class="member-photo">
+          <span class="member-photo-placeholder">Photo</span>
+        </div>
+        <h3>Wuseong Lee</h3>
+        <p class="mini-role">Ph.D. Student</p>
+        <p class="member-summary">Studies host-microbiome interactions and immune regulation in mucosal tissues.</p>
+      </article>
+
+      <article class="mini-card">
+        <div class="member-photo">
+          <span class="member-photo-placeholder">Photo</span>
+        </div>
+        <h3>So-Hyeon❤️ Shin</h3>
+        <p class="mini-role">Integrated Ph.D. Student</p>
+        <p class="member-summary">Interested in microbiome-driven immune homeostasis and inflammatory disease mechanisms.</p>
+      </article>
+
+      <article class="mini-card profile-card">
+        <div class="member-photo">
+          <span class="member-photo-placeholder">Photo</span>
+        </div>
+        <h3>Duck-kyun Woo</h3>
+        <p class="mini-role">Integrated Ph.D. Student</p>
+        <p class="member-summary">Contributes to experimental models for host-microbe crosstalk and tissue immune responses in the study of microbiome-linked immune homeostasis.</p>
+        <div class="member-details">
+          <div class="member-detail">
+            <p class="member-detail-label">Education</p>
+            <p>Completed undergraduate training in the Department of Cosmetics Engineering and the Division of Advanced Biotechnology at Konkuk University, with a B.S. expected in August 2026.</p>
+          </div>
+        </div>
+        <div class="member-links" aria-label="Duck-kyun Woo links">
+          <a class="icon-link" href="https://duckkyun.github.io/" target="_blank" rel="noreferrer" aria-label="Duck-kyun Woo homepage">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.29 9.4 7.86 10.92.57.11.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.97.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.29-5.26-5.75 0-1.27.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.19a11.1 11.1 0 0 1 5.8 0c2.21-1.5 3.18-1.19 3.18-1.19.63 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.11 0 4.47-2.7 5.45-5.28 5.74.42.37.78 1.08.78 2.19 0 1.58-.01 2.85-.01 3.24 0 .3.2.67.79.55A11.54 11.54 0 0 0 23.5 12C23.5 5.66 18.35.5 12 .5Z"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="member-photo">
+          <span class="member-photo-placeholder">Photo</span>
+        </div>
+        <h3>Jeong-Yoon Choi</h3>
+        <p class="mini-role">Researcher</p>
+        <p class="member-summary">Supports day-to-day experiments, data organization, and project coordination across the lab's research program.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Alumni</p>
+        <h2 class="section-title">Former lab members</h2>
+      </div>
+      <p class="section-note">Keep alumni entries brief with a name, degree earned in the lab, and a short note on the current position or field after graduation.</p>
+    </div>
+
+    <div class="alumni-grid">
+      <article class="alumni-card">
+        <h3>Alumni Name</h3>
+        <p class="alumni-degree">Degree earned in Ryu Lab</p>
+        <p>Add a short note here about the alumnus' current position, workplace, or research field after graduation.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel accent-panel">
+      <p class="eyebrow">Join the lab</p>
+      <h2 class="section-title">Interested in training with us?</h2>
+      <p class="lead">Prospective integrated Ph.D., Ph.D., and postdoctoral applicants are welcome to contact the lab with a short CV and a brief note on their research interests.</p>
+      <div class="button-row">
+        <a class="button" href={base + 'contact/'}>Contact the lab</a>
+        <a class="button ghost" href={base + 'research/'}>Explore research</a>
+      </div>
+    </div>
+  </section>
+</Base>

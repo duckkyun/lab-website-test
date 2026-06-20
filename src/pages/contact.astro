@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title="Contact" description="Contact Ryu Lab at Yonsei University College of Medicine for collaboration and trainee inquiries.">
+  <section class="section">
+    <p class="eyebrow">Contact</p>
+    <h2 class="page-title">Get in touch</h2>
+    <p class="lead">Prospective students, collaborators, and visitors can contact Ryu Lab here for research and training inquiries.</p>
+  </section>
+
+  <section class="section">
+    <div class="contact-grid">
+      <article class="contact-card">
+        <h3>Lab contact</h3>
+        <p>Email: <a href="mailto:yjh@yuhs.ac">yjh@yuhs.ac</a></p>
+        <p>Address: Avison Biomedical Research Center (ABMRC), 50-1 Yonsei-ro, Seodaemun-gu, Seoul 03722, Korea</p>
+        <div class="link-row">
+          <a href="mailto:yjh@yuhs.ac">Email the lab</a>
+          <a href="https://maps.google.com/?q=Avison+Biomedical+Research+Center+Yonsei+University" target="_blank" rel="noreferrer">Open map</a>
+        </div>
+      </article>
+
+      <article class="contact-card accent-panel">
+        <h3>Prospective students</h3>
+        <p>We welcome integrated Ph.D., doctoral, and postdoctoral applicants interested in microbiome research, mucosal immunology, and tissue-resident cell biology.</p>
+        <p>Please send a short CV and a brief note about your research interests with the subject line:</p>
+        <p><b>[Ryu Lab] Prospective student - Your Name</b></p>
+      </article>
+    </div>
+  </section>
+</Base>

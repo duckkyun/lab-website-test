@@ -1,0 +1,136 @@
+---
+import { SITE } from '../consts';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import fontRegular from '../styles/fonts/pretendard/Pretendard-Regular.woff2?url';
+import fontSemiBold from '../styles/fonts/pretendard/Pretendard-SemiBold.woff2?url';
+import fontBold from '../styles/fonts/pretendard/Pretendard-Bold.woff2?url';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = SITE.description } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+const base = import.meta.env.BASE_URL;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const homeUrl = new URL(base, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ResearchOrganization',
+  name: SITE.title,
+  alternateName: 'Ryu Laboratory',
+  description: SITE.description,
+  url: homeUrl,
+  parentOrganization: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Yonsei University College of Medicine',
+    department: 'Department of Biomedical Sciences',
+  },
+  member: {
+    '@type': 'Person',
+    name: 'Ji-Hwan Ryu',
+    jobTitle: 'Principal Investigator',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={base + 'favicon.ico'} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+
+    <!-- Preload fonts so Pretendard is ready at first paint; with
+         font-display:optional this prevents any fallback-to-Pretendard reflow
+         (which briefly wrapped the header subtitle to two lines). -->
+    <link rel="preload" href={fontRegular} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={fontSemiBold} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={fontBold} as="font" type="font/woff2" crossorigin />
+
+    <script is:inline>
+      // Apply theme before first paint (no flash of the wrong theme).
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main class="page-shell">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Delegated on document so a single binding covers the whole header.
+      const menuEl = () => document.getElementById('site-menu');
+
+      document.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement;
+        const menu = menuEl();
+
+        // dark-mode toggle
+        if (target.closest('.theme-toggle')) {
+          const isDark = document.documentElement.dataset.theme === 'dark';
+          if (isDark) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.documentElement.dataset.theme = 'dark';
+            localStorage.setItem('theme', 'dark');
+          }
+          return;
+        }
+
+        // mobile menu open/close
+        const toggle = target.closest('.menu-toggle');
+        if (toggle && menu) {
+          const open = menu.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', String(open));
+          return;
+        }
+
+        // tap outside an open menu → close it
+        if (
+          menu &&
+          menu.classList.contains('is-open') &&
+          !target.closest('#site-menu') &&
+          !target.closest('.menu-toggle')
+        ) {
+          menu.classList.remove('is-open');
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') menuEl()?.classList.remove('is-open');
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 960) menuEl()?.classList.remove('is-open');
+      });
+    </script>
+  </body>
+</html>
