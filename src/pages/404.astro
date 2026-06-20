@@ -19,18 +19,28 @@ const base = import.meta.env.BASE_URL;
 
     <div class="button-row">
       <a class="button" href={SITE.issues} target="_blank" rel="noreferrer">Report on GitHub</a>
-      <a class="button ghost" href={`mailto:${SITE.maintainerEmail}?subject=Broken link on Ryu Lab site`}>
-        Email the maintainer
-      </a>
     </div>
+
+    <p class="notfound-email">
+      Prefer email? Reach the maintainer at <span class="email">{SITE.maintainerEmail}</span>
+    </p>
 
     <p class="notfound-back"><a href={base}>← Back to home</a></p>
   </section>
 </Base>
 
 <style>
+  .notfound-email {
+    margin: 20px 0 0;
+    color: var(--muted);
+  }
+  .notfound-email .email {
+    color: var(--text);
+    font-weight: 600;
+    user-select: all; /* one click selects the whole address to copy */
+  }
   .notfound-back {
-    margin-top: 28px;
+    margin-top: 24px;
     color: var(--muted);
   }
 </style>
