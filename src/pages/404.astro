@@ -1,44 +1,88 @@
 ---
-import Base from '../layouts/Base.astro';
-import { SITE } from '../consts';
+// =====================================================================
+//  404.astro  —  ANNOTATED FOR LEARNING
+//
+//  An .astro file has up to THREE regions, each with its OWN comment style:
+//    1. FRONTMATTER  — these lines between the --- fences. It is JavaScript
+//                      and runs when the site is BUILT (not in the browser).
+//                      Comments start with  //  (like this line).
+//    2. TEMPLATE     — everything after the second --- . It reads like HTML.
+//                      Comments there use   <!-- ... -->   (real HTML comments,
+//                      the exact thing you'll read about on MDN).
+//    3. <style>      — CSS at the very bottom. Comments there use slash-star.
+//
+//  Lines tagged "ASTRO:" are the bits that are NOT plain HTML (so you won't
+//  find them on MDN). Everything else is standard HTML/CSS you can look up.
+// =====================================================================
 
+// ASTRO: `import` brings in code/components from other files.
+import Base from '../layouts/Base.astro'; // the shared page shell (header, footer, <head>)
+import { SITE } from '../consts';         // SITE = site-wide values (title, email, links)
+
+// ASTRO: a variable. import.meta.env.BASE_URL is "/lab-website-test/".
+// We put it in front of internal links so they work under that sub-path.
 const base = import.meta.env.BASE_URL;
 ---
 
+<!-- TEMPLATE STARTS HERE. From this point down it reads like HTML. -->
+
+<!-- ASTRO: <Base> is a COMPONENT (a reusable block = our whole page layout).
+     title and description look like HTML attributes but are "props" passed into it. -->
 <Base
   title="Page not found"
   description="The page you were looking for could not be found on the Ryu Lab website."
 >
+  <!-- <section> groups related content. class="section" is a label the CSS targets. -->
   <section class="section">
+
+    <!-- <p> is a paragraph. "eyebrow" is just the class name we chose for styling. -->
     <p class="eyebrow">Error 404</p>
+
+    <!-- <h1> is the page's main heading. Use only ONE <h1> per page. -->
     <h1 class="page-title">This page isn't here.</h1>
+
+    <!-- another paragraph: the explanation text the visitor reads -->
     <p class="lead">
       The page you were looking for could not be found — it may have moved, been renamed,
       or never existed. If a link on this site brought you here, please let me know so I can fix it.
     </p>
 
+    <!-- <div> is a generic box, used only for grouping / layout. -->
     <div class="button-row">
+      <!-- <a> is a link (anchor). href is where it goes.
+           ASTRO: here href takes a value in braces (the SITE.issues variable)
+           instead of a quoted string. target="_blank" opens a new tab;
+           rel="noreferrer" is a safety attribute for external links. -->
       <a class="button" href={SITE.issues} target="_blank" rel="noreferrer">Report on GitHub</a>
     </div>
 
     <p class="notfound-email">
-      Prefer email? Reach the maintainer at <span class="email">{SITE.maintainerEmail}</span>
+      Prefer email? Reach the maintainer at
+      <!-- <span> is an inline box (no line break) so we can style just the address. -->
+      <span class="email">{SITE.maintainerEmail}</span>
     </p>
 
+    <!-- the arrow is a normal text character. href={base} sends them to the home page. -->
     <p class="notfound-back"><a href={base}>← Back to home</a></p>
+
   </section>
 </Base>
 
+<!-- The <style> below is CSS. It styles ONLY this page (Astro keeps it scoped). -->
 <style>
+  /* A "selector": target every element that has class="notfound-email". */
   .notfound-email {
-    margin: 20px 0 0;
-    color: var(--muted);
+    margin: 20px 0 0;      /* outer space: 20px top, 0 right, 0 bottom (left defaults to 0) */
+    color: var(--muted);   /* var(--muted) reads a colour token defined in global.css */
   }
+
+  /* ".notfound-email .email" = a class="email" element that is INSIDE .notfound-email. */
   .notfound-email .email {
-    color: var(--text);
-    font-weight: 600;
-    user-select: all; /* one click selects the whole address to copy */
+    color: var(--text);    /* the main text-colour token */
+    font-weight: 600;      /* 400 = normal, 600 = semi-bold, 700 = bold */
+    user-select: all;      /* one click selects the whole address (easy to copy) */
   }
+
   .notfound-back {
     margin-top: 24px;
     color: var(--muted);
