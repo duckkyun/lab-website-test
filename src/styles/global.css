@@ -863,7 +863,14 @@ body { padding-right: var(--rail-w); }
    below the header, so the page fits one screen with no scroll. Degrades to a
    normal scroll only if the hero is ever taller than the viewport. */
 .home-view { min-height: 100vh; display: flex; flex-direction: column; }
-.home-view footer { display: none; }
+/* home keeps only a slim maintainer credit, not the full footer */
+.home-view footer { background: transparent; }
+.home-view .footer-shell { display: block; text-align: center; padding-top: 14px; padding-bottom: 14px; }
+.home-view .footer-shell > div:first-child,
+.home-view .footer-shell .footer-text,
+.home-view .footer-generated,
+.home-view .footer-meta br { display: none; }
+.home-view .footer-meta { margin: 0; }
 .home-view .page-shell {
   flex: 1;
   display: flex;
