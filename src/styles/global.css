@@ -858,6 +858,22 @@ body { padding-right: var(--rail-w); }
   .brand-rail { display: none; }
 }
 
+/* ---------- one-screen home (fullscreen hero) ----------
+   On the home page the footer is dropped and the hero is centred in the space
+   below the header, so the page fits one screen with no scroll. Degrades to a
+   normal scroll only if the hero is ever taller than the viewport. */
+.home-view { min-height: 100vh; display: flex; flex-direction: column; }
+.home-view footer { display: none; }
+.home-view .page-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.home-view .hero-section { padding-top: 0; padding-bottom: 0; }
+
 /* ---------- gallery ---------- */
 .gallery-grid {
   display: grid;

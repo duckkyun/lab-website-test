@@ -10,9 +10,10 @@ import fontBold from '../styles/fonts/pretendard/Pretendard-Bold.woff2?url';
 interface Props {
   title?: string;
   description?: string;
+  fullscreen?: boolean;
 }
 
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, fullscreen = false } = Astro.props;
 const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
 const base = import.meta.env.BASE_URL;
 
@@ -77,7 +78,7 @@ const jsonLd = {
       }
     </script>
   </head>
-  <body>
+  <body class={fullscreen ? 'home-view' : undefined}>
     <Header />
 
     <aside class="brand-rail">
