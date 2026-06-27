@@ -26,6 +26,13 @@ export const NAV = [
     ],
   },
   { label: 'Publications', href: 'publications/' },
-  { label: 'News', href: 'news/' },
+  {
+    label: 'News',
+    href: 'news/',
+    children: [
+      { label: 'Updates', href: 'news/' },
+      { label: 'Gallery', href: 'gallery/' },
+    ],
+  },
   { label: 'Contact', href: 'contact/' },
 ] as const;

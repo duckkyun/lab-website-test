@@ -23,7 +23,11 @@ const isActive = (href: string) => {
           NAV.map((item) =>
             'children' in item ? (
               <div class="menu-group">
-                <span class={`menu-trigger${isActive(item.href) ? ' active' : ''}`}>
+                <span
+                  class={`menu-trigger${
+                    isActive(item.href) || item.children.some((c) => isActive(c.href)) ? ' active' : ''
+                  }`}
+                >
                   <a class="menu-link" href={base + item.href}>
                     {item.label}
                   </a>

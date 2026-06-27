@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import { GALLERY } from '../data/gallery';
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  title="Gallery"
+  description="Photos from conferences, lab outings, and milestones at Ryu Lab, Yonsei University College of Medicine."
+>
+  <section class="section">
+    <p class="eyebrow">Gallery</p>
+    <h2 class="page-title">Lab life in pictures</h2>
+    <p class="lead">Group photos from conferences, lab outings, and milestones.</p>
+  </section>
+
+  <section class="section">
+    {
+      GALLERY.length === 0 ? (
+        <div class="gallery-empty">
+          <p>Photos are coming soon — check back after the next conference or lab event.</p>
+        </div>
+      ) : (
+        <div class="gallery-grid">
+          {GALLERY.map((photo) => (
+            <figure class="gallery-item">
+              <div class="gallery-photo">
+                <img
+                  src={base + 'images/gallery/' + photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              {(photo.caption || photo.event || photo.date) && (
+                <figcaption>
+                  {photo.caption && <span class="gallery-caption">{photo.caption}</span>}
+                  {(photo.event || photo.date) && (
+                    <span class="gallery-meta">
+                      {[photo.event, photo.date].filter(Boolean).join(' · ')}
+                    </span>
+                  )}
+                </figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Base>
