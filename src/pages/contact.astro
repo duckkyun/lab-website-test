@@ -1,33 +1,90 @@
 ---
 import Base from '../layouts/Base.astro';
-const base = import.meta.env.BASE_URL;
+
+const mapsUrl =
+  'https://maps.google.com/?q=Avison+Biomedical+Research+Center+Yonsei+University+College+of+Medicine';
 ---
 
-<Base title="Contact" description="Contact Ryu Lab at Yonsei University College of Medicine for collaboration and trainee inquiries.">
+<Base
+  title="Contact"
+  description="Contact Ryu Lab at Yonsei University College of Medicine for collaboration and trainee inquiries."
+>
   <section class="section">
-    <p class="eyebrow">Contact</p>
-    <h2 class="page-title">Get in touch</h2>
-    <p class="lead">Prospective students, collaborators, and visitors can contact Ryu Lab here for research and training inquiries.</p>
+    <h2 class="page-title">Contact</h2>
+    <p class="lead">For research collaboration or trainee inquiries, reach the lab directly.</p>
   </section>
 
   <section class="section">
     <div class="contact-grid">
       <article class="contact-card">
         <h3>Lab contact</h3>
-        <p>Email: <a href="mailto:yjh@yuhs.ac">yjh@yuhs.ac</a></p>
-        <p>Address: Avison Biomedical Research Center (ABMRC), 50-1 Yonsei-ro, Seodaemun-gu, Seoul 03722, Korea</p>
+        <dl class="contact-list">
+          <div>
+            <dt>Email</dt>
+            <dd><span class="copyable">yjh@yuhs.ac</span></dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>
+              Avison Biomedical Research Center (ABMRC)<br />
+              50-1 Yonsei-ro, Seodaemun-gu<br />
+              Seoul 03722, Republic of Korea
+            </dd>
+          </div>
+        </dl>
         <div class="link-row">
-          <a href="mailto:yjh@yuhs.ac">Email the lab</a>
-          <a href="https://maps.google.com/?q=Avison+Biomedical+Research+Center+Yonsei+University" target="_blank" rel="noreferrer">Open map</a>
+          <a href={mapsUrl} target="_blank" rel="noreferrer">Open in Google Maps</a>
         </div>
       </article>
 
       <article class="contact-card accent-panel">
         <h3>Prospective students</h3>
-        <p>We welcome integrated Ph.D., doctoral, and postdoctoral applicants interested in microbiome research, mucosal immunology, and tissue-resident cell biology.</p>
-        <p>Please send a short CV and a brief note about your research interests with the subject line:</p>
-        <p><b>[Ryu Lab] Prospective student - Your Name</b></p>
+        <p>
+          We welcome integrated Ph.D., doctoral, and postdoctoral applicants in microbiome research,
+          mucosal immunology, and tissue-resident cell biology.
+        </p>
+        <p>Email a short CV and a brief note on your interests, with the subject line:</p>
+        <p class="subject-tag">[Ryu Lab] Prospective student — Your Name</p>
       </article>
     </div>
   </section>
 </Base>
+
+<style>
+  .contact-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-list dt {
+    margin-bottom: 4px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .contact-list dd {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  /* shown as plain text (no mailto); one click selects the whole address */
+  .copyable {
+    user-select: all;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .subject-tag {
+    display: inline-block;
+    margin: 4px 0 0;
+    padding: 7px 12px;
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    font-weight: 600;
+    color: var(--text);
+    user-select: all;
+  }
+</style>
