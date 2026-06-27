@@ -888,6 +888,39 @@ body { padding-right: var(--rail-w); }
 }
 .gallery-empty p { margin: 0; }
 
+/* ---------- research highlights ---------- */
+.highlight-list { display: flex; flex-direction: column; gap: clamp(30px, 4.5vw, 52px); }
+.highlight {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(20px, 3.5vw, 40px);
+  align-items: center;
+}
+.highlight.no-figure { grid-template-columns: 1fr; }
+.highlight.no-figure .highlight-body { max-width: 74ch; }
+
+.highlight-media { margin: 0; }
+.highlight-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.highlight-frame img { max-width: 100%; max-height: 340px; width: auto; height: auto; display: block; }
+.highlight-figcap { margin: 10px 2px 0; font-size: 0.78rem; line-height: 1.5; color: var(--faint); }
+
+.highlight-meta { margin: 0 0 6px; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+.highlight-body h3 { margin: 0 0 10px; font-size: 1.16rem; font-weight: 600; line-height: 1.32; }
+.highlight-body > p { color: var(--muted); }
+.highlight-body .link-row { margin-top: 14px; }
+
+@media (max-width: 760px) {
+  .highlight { grid-template-columns: 1fr; gap: 16px; }
+}
+
 /* ---------- page-transition strategy ----------
    We deliberately do NOT use Astro's view transitions: they snapshot the page
    into an image on every navigation, and snapshotted text rasterises slightly

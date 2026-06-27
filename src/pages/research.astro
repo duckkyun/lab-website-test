@@ -2,9 +2,79 @@
 import Base from '../layouts/Base.astro';
 
 const base = import.meta.env.BASE_URL;
+const fig = (f) => base + 'images/research/' + f;
+
+// Research highlights drawn from the lab's publications. Summaries are written
+// for a general scientific audience; figures are from the open-access versions
+// (license noted in each caption). let-7a has no open figure (paywalled letter).
+const highlights = [
+  {
+    title: 'Intestinal dysbiosis from epithelial Fabp6 disruption exacerbates gut inflammation',
+    journal: 'Immune Network',
+    year: '2025',
+    doi: '10.4110/in.2025.25.e35',
+    summary:
+      'Deleting the intestinal bile-acid transporter <i>Fabp6</i> in mice reshapes the gut microbiome and bile-acid balance and makes the animals far more susceptible to colitis. Restoring the depleted commensal <i>Ligilactobacillus murinus</i> — or the bile acid TDCA — repaired the gut barrier and protected against disease, pointing toward microbe- and metabolite-based therapies for inflammatory bowel disease.',
+    figure: 'p1-fabp6.jpg',
+    figcap: 'Intestinal Fabp6 knockout shifts cecal bile acids and worsens DSS-induced colitis. — Immune Network 2025 (CC BY-NC)',
+  },
+  {
+    title: 'Conversation between skin microbiota and the host: from early life to adulthood',
+    journal: 'Experimental & Molecular Medicine',
+    year: '2025',
+    doi: '10.1038/s12276-025-01427-y',
+    summary:
+      'A review of how skin commensal microbiota communicate with the host from early life to adulthood — shaping the skin barrier, immune development, and the balance between healthy homeostasis and inflammatory disease.',
+    figure: 'p2-skin-review.jpg',
+    figcap: 'How skin microbes and their metabolites tune barrier function and homeostasis via AhR signaling. — Exp & Mol Med 2025 (CC BY)',
+  },
+  {
+    title: 'CD39⁺CD9⁺ lung interstitial macrophages suppress neutrophilic asthma by blocking NETosis',
+    journal: 'Nature Communications',
+    year: '2024',
+    doi: '10.1038/s41467-024-53038-2',
+    summary:
+      'Single-cell profiling uncovered a lung interstitial macrophage subset (CD39⁺CD9⁺) that restrains hard-to-treat neutrophilic asthma: the cells bind neutrophils through CD9 and use CD39 to degrade the ATP that drives neutrophil extracellular trap (NET) formation. Their numbers fall as asthma severity rises in patients, marking them as a therapeutic target.',
+    figure: 'p3-cd39cd9.jpg',
+    figcap: 'Transferred CD39⁺CD9⁺ interstitial macrophages suppress Th17-driven neutrophilic inflammation and NETs. — Nat Commun 2024 (CC BY)',
+  },
+  {
+    title: 'Airway epithelial CD47 drives influenza-mediated bacterial super-infection',
+    journal: 'Nature Communications',
+    year: '2024',
+    doi: '10.1038/s41467-024-47963-5',
+    summary:
+      'Influenza raises CD47 on the surface of airway epithelial cells, creating a docking site that <i>Staphylococcus aureus</i> uses to attach — explaining why the flu predisposes to dangerous secondary bacterial pneumonia. Blocking the CD47 interaction protected mice, identifying CD47 as a therapeutic target against post-influenza super-infection.',
+    figure: 'p5-cd47.jpg',
+    figcap: 'Model: influenza-induced epithelial CD47 provides an attachment site for S. aureus FnBP. — Nat Commun 2024 (CC BY)',
+  },
+  {
+    title: 'A skin microbe–dependent TSLP–ILC2 priming axis in early life is co-opted in allergy',
+    journal: 'Cell Host & Microbe',
+    year: '2024',
+    doi: '10.1016/j.chom.2023.12.006',
+    summary:
+      'Early-life colonization of the skin by <i>Staphylococcus</i> commensals induces keratinocyte TSLP that primes skin group-2 innate lymphoid cells (ILC2s) during a narrow postnatal window. This same axis is later co-opted to amplify atopic-dermatitis-like allergic inflammation, linking the timing of neonatal microbial exposure to later allergic disease.',
+    figure: 'p6-tslp-ilc2.jpg',
+    figcap: 'Graphical abstract: early-life Staphylococcus-driven TSLP→ILC2 priming, later co-opted in allergy. — Cell Host & Microbe 2024',
+  },
+  {
+    title: 'NOX4-mediated alveolar macrophage recruitment limits neutrophilic lung inflammation',
+    journal: 'Immune Network',
+    year: '2023',
+    doi: '10.4110/in.2023.23.e42',
+    summary:
+      'NADPH oxidase 4 (NOX4) drives recruitment of protective alveolar macrophages during <i>Staphylococcus aureus</i> lung infection, limiting damaging neutrophilic inflammation. S. aureus-induced VEGF signals through NOX4 to raise endothelial ICAM1, pulling macrophages into the airway to help resolve inflammation.',
+    figure: 'p7-nox4.jpg',
+    figcap: 'Model: S. aureus–VEGF–NOX4 raises endothelial ICAM1 to recruit protective alveolar macrophages. — Immune Network 2023 (CC BY-NC)',
+  },
+];
 ---
 
-<Base title="Research" description="Research at Ryu Lab focuses on host-microbiome interactions, immune homeostasis, and tissue-resident cell biology.">
+<Base
+  title="Research"
+  description="Research at Ryu Lab focuses on host-microbiome interactions, immune homeostasis, and tissue-resident cell biology."
+>
   <section class="section">
     <p class="eyebrow">Research</p>
     <h2 class="page-title">Research areas and experimental approaches</h2>
@@ -34,143 +104,39 @@ const base = import.meta.env.BASE_URL;
   <section class="section">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">Themes</p>
-        <h2 class="section-title">Three core questions</h2>
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-title">Research highlights</h2>
       </div>
-      <p class="section-note">Each block explains what the lab studies and why it matters.</p>
+      <p class="section-note">Recent findings from the lab's publications, each summarized with a key figure. Follow any entry to the full paper.</p>
     </div>
 
-    <div class="panel-grid">
-      <article class="panel">
-        <h3>Gut microbiome and immune homeostasis</h3>
-        <p>We examine how commensal microbes help establish balanced host immune responses and maintain healthy tissue physiology.</p>
-        <div class="chip-row">
-          <span class="chip">gut microbiome</span>
-          <span class="chip">immune homeostasis</span>
-          <span class="chip">host physiology</span>
-        </div>
-      </article>
-
-      <article class="panel">
-        <h3>Skin microbiota and inflammatory disease</h3>
-        <p>We study how skin dysbiosis and early-life microbial priming contribute to allergic inflammation and disease susceptibility.</p>
-        <div class="chip-row">
-          <span class="chip">skin dysbiosis</span>
-          <span class="chip">allergic inflammation</span>
-          <span class="chip">early life</span>
-        </div>
-      </article>
-
-      <article class="panel">
-        <h3>Tissue-resident cell regulation by microbiota</h3>
-        <p>We aim to define resident cell populations whose development, differentiation, and function are controlled by commensal microbes.</p>
-        <div class="chip-row">
-          <span class="chip">resident cells</span>
-          <span class="chip">development</span>
-          <span class="chip">microbiota</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Framework</p>
-        <h2 class="section-title">From microbial cues to disease mechanisms</h2>
-      </div>
-      <p class="section-note">Across projects, the lab connects microbial signals, tissue programs, and measurable immune outcomes.</p>
+    <div class="highlight-list">
+      {
+        highlights.map((h) => (
+          <article class={`highlight${h.figure ? '' : ' no-figure'}`}>
+            {h.figure && (
+              <figure class="highlight-media">
+                <span class="highlight-frame">
+                  <img src={fig(h.figure)} alt={`Key figure — ${h.title}`} loading="lazy" decoding="async" />
+                </span>
+                <figcaption class="highlight-figcap">{h.figcap}</figcaption>
+              </figure>
+            )}
+            <div class="highlight-body">
+              <p class="highlight-meta">{h.journal} · {h.year}</p>
+              <h3>{h.title}</h3>
+              <p set:html={h.summary} />
+              <div class="link-row">
+                <a href={`https://doi.org/${h.doi}`} target="_blank" rel="noreferrer">Read the paper</a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
     </div>
 
-    <div class="path-grid">
-      <article class="path-step">
-        <p class="path-index">Step 1</p>
-        <h3>Commensal communities</h3>
-        <p>We define relevant gut and skin microbes, their metabolites, and the timing of host exposure.</p>
-      </article>
-
-      <article class="path-step">
-        <p class="path-index">Step 2</p>
-        <h3>Tissue programs</h3>
-        <p>We examine epithelial signals, tissue-resident immune cells, and developmental programs shaped by commensals.</p>
-      </article>
-
-      <article class="path-step">
-        <p class="path-index">Step 3</p>
-        <h3>Experimental systems</h3>
-        <p>Germ-free and gnotobiotic models, inflammatory disease models, and microbiome-informed analyses provide mechanistic tests.</p>
-      </article>
-
-      <article class="path-step">
-        <p class="path-index">Step 4</p>
-        <h3>Disease relevance</h3>
-        <p>We ask how microbial regulation influences homeostasis, allergic inflammation, infection responses, and tissue function.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Methods</p>
-        <h2 class="section-title">Experimental platforms</h2>
-      </div>
-      <p class="section-note">The lab combines controlled microbial model systems with tissue-level immune phenotyping and microbiome-informed analysis.</p>
-    </div>
-
-    <div class="panel-grid two">
-      <article class="panel">
-        <h3>Model systems</h3>
-        <ul class="simple-list">
-          <li>Germ-free and gnotobiotic animal models</li>
-          <li>Defined commensal colonization systems</li>
-          <li>Dysbiosis-driven inflammatory disease models</li>
-        </ul>
-      </article>
-
-      <article class="panel">
-        <h3>Analysis and readouts</h3>
-        <ul class="simple-list">
-          <li>Microbiome-based functional analysis</li>
-          <li>Host immune and tissue phenotyping</li>
-          <li>Comparative studies across gut and skin systems</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Environment</p>
-        <h2 class="section-title">A collaborative and well-equipped research setting</h2>
-      </div>
-      <p class="section-note">The institutional environment helps the lab connect mechanistic basic science with clinically relevant questions and robust experimental execution.</p>
-    </div>
-
-    <div class="panel-grid">
-      <article class="panel">
-        <h3>Clinical and basic science collaboration</h3>
-        <p>Because the institute is closely connected to Severance Hospital, the lab can readily collaborate with clinical faculty as well as basic science professors across diverse specialties. This makes it easier to develop interdisciplinary projects that connect mechanistic microbiome research with translational and disease-oriented questions.</p>
-      </article>
-
-      <article class="panel">
-        <h3>Strength in animal models</h3>
-        <p>The institute maintains a germ-free mouse facility and provides flexible access to gene-modified transgenic mouse lines as well as SPF mouse resources. These strengths make the environment especially well suited for animal experiments that require controlled microbial exposure and disease modeling.</p>
-      </article>
-
-      <article class="panel">
-        <h3>Immune cell analysis platforms</h3>
-        <p>The lab also benefits from access to up-to-date FACS instrumentation that supports detailed immune cell analysis and sorting. Together, these platforms give researchers the technical flexibility to pursue independent and high-resolution studies of host-microbe and immune interactions.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="panel accent-panel">
-      <p class="eyebrow">Why it matters</p>
-      <h2 class="section-title">From commensal balance to disease mechanisms</h2>
-      <p class="lead">Our work aims to clarify how tissue-resident cells and host-microbiome interactions influence homeostasis, inflammatory disease, and long-term tissue function.</p>
+    <div class="link-row" style="margin-top: 28px;">
+      <a href={base + 'publications/'}>See all publications</a>
     </div>
   </section>
 </Base>
