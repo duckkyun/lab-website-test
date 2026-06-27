@@ -20,11 +20,38 @@ const isActive = (href: string) => {
     <div class="header-actions">
       <nav id="site-menu" class="site-menu" aria-label="Primary">
         {
-          NAV.map((item) => (
-            <a class={isActive(item.href) ? 'active' : undefined} href={base + item.href}>
-              {item.label}
-            </a>
-          ))
+          NAV.map((item) =>
+            'children' in item ? (
+              <div class="menu-group">
+                <span class={`menu-trigger${isActive(item.href) ? ' active' : ''}`}>
+                  <a class="menu-link" href={base + item.href}>
+                    {item.label}
+                  </a>
+                  <button
+                    class="submenu-toggle"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls={`submenu-${item.label.toLowerCase()}`}
+                    aria-label={`${item.label} submenu`}
+                  >
+                    <span aria-hidden="true">▾</span>
+                  </button>
+                </span>
+                <div class="submenu" id={`submenu-${item.label.toLowerCase()}`} role="menu">
+                  {item.children.map((child) => (
+                    <a class="submenu-link" role="menuitem" href={base + child.href}>
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <a class={isActive(item.href) ? 'active' : undefined} href={base + item.href}>
+                {item.label}
+              </a>
+            )
+          )
         }
       </nav>
 

@@ -11,10 +11,20 @@ export const SITE = {
 } as const;
 
 // Paths are relative to the site base; Header prefixes BASE_URL.
+// An item with `children` renders as a dropdown; its own href is still the
+// landing page, and children jump to in-page anchors on that page.
 export const NAV = [
   { label: 'Home', href: '' },
   { label: 'Research', href: 'research/' },
-  { label: 'Members', href: 'members/' },
+  {
+    label: 'People',
+    href: 'members/',
+    children: [
+      { label: 'PI', href: 'members/#pi' },
+      { label: 'Lab Members', href: 'members/#members' },
+      { label: 'Alumni', href: 'members/#alumni' },
+    ],
+  },
   { label: 'Publications', href: 'publications/' },
   { label: 'News', href: 'news/' },
   { label: 'Contact', href: 'contact/' },

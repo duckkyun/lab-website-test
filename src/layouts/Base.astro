@@ -88,6 +88,15 @@ const jsonLd = {
       // Delegated on document so a single binding covers the whole header.
       const menuEl = () => document.getElementById('site-menu');
 
+      // Close any open nav dropdown(s) except an optional one to keep open.
+      const closeSubmenus = (except: Element | null = null) => {
+        document.querySelectorAll('.menu-group.is-submenu-open').forEach((g) => {
+          if (g === except) return;
+          g.classList.remove('is-submenu-open');
+          g.querySelector('.submenu-toggle')?.setAttribute('aria-expanded', 'false');
+        });
+      };
+
       document.addEventListener('click', (event) => {
         const target = event.target as HTMLElement;
         const menu = menuEl();
@@ -105,11 +114,22 @@ const jsonLd = {
           return;
         }
 
+        // nav dropdown caret (e.g. People submenu)
+        const caret = target.closest('.submenu-toggle');
+        if (caret) {
+          const group = caret.closest('.menu-group');
+          const open = group?.classList.toggle('is-submenu-open');
+          caret.setAttribute('aria-expanded', String(open));
+          closeSubmenus(group);
+          return;
+        }
+
         // mobile menu open/close
         const toggle = target.closest('.menu-toggle');
         if (toggle && menu) {
           const open = menu.classList.toggle('is-open');
           toggle.setAttribute('aria-expanded', String(open));
+          if (!open) closeSubmenus();
           return;
         }
 
@@ -122,14 +142,23 @@ const jsonLd = {
         ) {
           menu.classList.remove('is-open');
         }
+
+        // tap outside an open dropdown → close it (links inside navigate away)
+        if (!target.closest('.menu-group')) closeSubmenus();
       });
 
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') menuEl()?.classList.remove('is-open');
+        if (event.key === 'Escape') {
+          menuEl()?.classList.remove('is-open');
+          closeSubmenus();
+        }
       });
 
       window.addEventListener('resize', () => {
-        if (window.innerWidth > 960) menuEl()?.classList.remove('is-open');
+        if (window.innerWidth > 960) {
+          menuEl()?.classList.remove('is-open');
+          closeSubmenus();
+        }
       });
     </script>
   </body>
