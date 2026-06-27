@@ -79,12 +79,33 @@ const jsonLd = {
   </head>
   <body>
     <Header />
+
+    <aside class="brand-rail">
+      <div class="rail-brand">
+        <span class="rail-logo">
+          <img src={base + 'images/yonsei-symbol.png'} alt="Yonsei University" />
+        </span>
+        <span class="rail-word"><span>RYU</span><span>LAB</span></span>
+      </div>
+      <a class="rail-icon" href={base + 'contact/'} aria-label="Contact the lab">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm.9 2 8.1 5.4L20.1 6H3.9ZM3 6.8V19h18V6.8l-8.4 5.6a1 1 0 0 1-1.2 0L3 6.8Z"/></svg>
+      </a>
+    </aside>
+
     <main class="page-shell">
       <slot />
     </main>
     <Footer />
 
     <script>
+      // Play the rail entrance once per browser session; on later navigations
+      // (full page loads) the rail is simply already in place.
+      const rail = document.querySelector('.brand-rail');
+      if (rail && !sessionStorage.getItem('railShown')) {
+        rail.classList.add('play');
+        sessionStorage.setItem('railShown', '1');
+      }
+
       // Delegated on document so a single binding covers the whole header.
       const menuEl = () => document.getElementById('site-menu');
 

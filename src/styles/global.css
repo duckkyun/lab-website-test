@@ -49,6 +49,7 @@
   --radius: 18px;
   --radius-lg: 26px;
   --shell: 1120px;
+  --rail-w: 66px;
   --shadow: 0 18px 40px rgba(20, 32, 43, 0.08);
   --shadow-accent: 0 12px 26px rgba(30, 99, 214, 0.16);
 
@@ -790,6 +791,71 @@ footer { border-top: 1px solid var(--line); background: var(--soft); }
   /* declutter the mobile header — keep just the brand name */
   .brand-subtitle { display: none; }
   .header-shell { gap: 12px; }
+}
+
+/* ---------- brand rail (fixed right edge) ----------
+   A warm-blue vertical rail carrying the Yonsei symbol + RYU LAB and a contact
+   link. The body is inset by its width so nothing slides under it; on first
+   visit of a session it wipes in top-to-bottom (see Base.astro). */
+body { padding-right: var(--rail-w); }
+
+.brand-rail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--rail-w);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  background: var(--accent);
+  color: #fff;
+}
+.rail-brand { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.rail-logo { display: flex; align-items: center; justify-content: center; }
+.rail-logo img { width: 48px; height: 48px; object-fit: contain; display: block; }
+.rail-word {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+}
+.rail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  color: #fff;
+  transition: background-color var(--ease);
+}
+.rail-icon:hover { background: rgba(255, 255, 255, 0.16); }
+.rail-icon svg { display: block; width: 20px; height: 20px; fill: currentColor; }
+
+/* entrance — only when .play is set (first visit of the session) */
+.brand-rail.play { animation: rail-wipe 0.68s cubic-bezier(0.4, 0, 0.2, 1) both; }
+@keyframes rail-wipe { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+.brand-rail.play .rail-brand { animation: rail-fade 0.5s ease 0.34s both; }
+.brand-rail.play .rail-icon { animation: rail-fade 0.5s ease 0.6s both; }
+@keyframes rail-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-rail.play, .brand-rail.play * { animation: none !important; clip-path: none !important; }
+}
+
+/* the rail eats too much width on phones — hide it and reclaim the inset.
+   Placed after the base rail rules so it wins the cascade. */
+@media (max-width: 720px) {
+  body { padding-right: 0; }
+  .brand-rail { display: none; }
 }
 
 /* ---------- gallery ---------- */
