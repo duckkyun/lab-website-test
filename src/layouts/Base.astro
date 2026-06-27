@@ -98,12 +98,17 @@ const jsonLd = {
     <Footer />
 
     <script>
-      // Play the rail entrance once per browser session; on later navigations
-      // (full page loads) the rail is simply already in place.
+      // Play the rail entrance on a fresh load — a refresh, or arriving from
+      // outside — but keep it static when navigating between our own pages.
       const rail = document.querySelector('.brand-rail');
-      if (rail && !sessionStorage.getItem('railShown')) {
-        rail.classList.add('play');
-        sessionStorage.setItem('railShown', '1');
+      if (rail) {
+        const navType = (performance.getEntriesByType('navigation')[0] || {}).type;
+        let internalRef = false;
+        try {
+          internalRef = !!document.referrer && new URL(document.referrer).origin === location.origin;
+        } catch (e) {}
+        const internalNav = (navType === 'navigate' || navType === 'back_forward') && internalRef;
+        if (!internalNav) rail.classList.add('play');
       }
 
       // Delegated on document so a single binding covers the whole header.
