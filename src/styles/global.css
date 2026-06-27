@@ -889,6 +889,22 @@ body { padding-right: var(--rail-w); }
 .gallery-empty p { margin: 0; }
 
 /* ---------- research highlights ---------- */
+.research-theme + .research-theme { margin-top: clamp(44px, 6vw, 76px); }
+.theme-head { margin-bottom: clamp(22px, 3vw, 30px); padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.theme-titlerow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.theme-title { margin: 0; font-size: clamp(1.3rem, 2.2vw, 1.6rem); font-weight: 700; letter-spacing: -0.01em; }
+.theme-tag {
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.theme-tag.current { background: var(--accent-soft); color: var(--accent-strong); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
+.theme-tag.foundational { background: var(--soft); color: var(--muted); border: 1px solid var(--line); }
+.theme-blurb { margin: 10px 0 0; max-width: 72ch; color: var(--muted); }
+
 .highlight-list { display: flex; flex-direction: column; gap: clamp(30px, 4.5vw, 52px); }
 .highlight {
   display: grid;
@@ -913,7 +929,7 @@ body { padding-right: var(--rail-w); }
 .highlight-figcap { margin: 10px 2px 0; font-size: 0.78rem; line-height: 1.5; color: var(--faint); }
 
 .highlight-meta { margin: 0 0 6px; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
-.highlight-body h3 { margin: 0 0 10px; font-size: 1.16rem; font-weight: 600; line-height: 1.32; }
+.highlight-body .highlight-title { margin: 0 0 10px; font-size: 1.16rem; font-weight: 600; line-height: 1.32; }
 .highlight-body > p { color: var(--muted); }
 .highlight-body .link-row { margin-top: 14px; }
 

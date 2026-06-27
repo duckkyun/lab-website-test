@@ -4,69 +4,95 @@ import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL;
 const fig = (f) => base + 'images/research/' + f;
 
-// Research highlights drawn from the lab's publications. Summaries are written
-// for a general scientific audience; figures are from the open-access versions
-// (license noted in each caption). let-7a has no open figure (paywalled letter).
-const highlights = [
+// Publication-derived highlights, grouped by research theme. Current focus:
+// skin microbiome + gut microbiome / gut–brain axis. Earlier foundational
+// work: airway & lung immunity. Figures are from the open-access versions
+// (license noted per caption); the paywalled let-7a letter is omitted.
+const skinReview = {
+  title: 'Conversation between skin microbiota and the host: from early life to adulthood',
+  journal: 'Experimental & Molecular Medicine',
+  year: '2025',
+  doi: '10.1038/s12276-025-01427-y',
+  summary:
+    'A review of how skin commensal microbiota communicate with the host from early life to adulthood — shaping the skin barrier, immune development, and the balance between healthy homeostasis and inflammatory disease.',
+  figure: 'p2-skin-review.jpg',
+  figcap: 'How skin microbes and their metabolites tune barrier function and homeostasis via AhR signaling. — Exp & Mol Med 2025 (CC BY)',
+};
+const tslp = {
+  title: 'A skin microbe–dependent TSLP–ILC2 priming axis in early life is co-opted in allergy',
+  journal: 'Cell Host & Microbe',
+  year: '2024',
+  doi: '10.1016/j.chom.2023.12.006',
+  summary:
+    'Early-life colonization of the skin by <i>Staphylococcus</i> commensals induces keratinocyte TSLP that primes skin group-2 innate lymphoid cells (ILC2s) during a narrow postnatal window. This same axis is later co-opted to amplify atopic-dermatitis-like allergic inflammation, linking the timing of neonatal microbial exposure to later allergic disease.',
+  figure: 'p6-tslp-ilc2.jpg',
+  figcap: 'Graphical abstract: early-life Staphylococcus-driven TSLP→ILC2 priming, later co-opted in allergy. — Cell Host & Microbe 2024',
+};
+const fabp6 = {
+  title: 'Intestinal dysbiosis from epithelial Fabp6 disruption exacerbates gut inflammation',
+  journal: 'Immune Network',
+  year: '2025',
+  doi: '10.4110/in.2025.25.e35',
+  summary:
+    'Deleting the intestinal bile-acid transporter <i>Fabp6</i> in mice reshapes the gut microbiome and bile-acid balance and makes the animals far more susceptible to colitis. Restoring the depleted commensal <i>Ligilactobacillus murinus</i> — or the bile acid TDCA — repaired the gut barrier and protected against disease, pointing toward microbe- and metabolite-based therapies for inflammatory bowel disease.',
+  figure: 'p1-fabp6.jpg',
+  figcap: 'Intestinal Fabp6 knockout shifts cecal bile acids and worsens DSS-induced colitis. — Immune Network 2025 (CC BY-NC)',
+};
+const cd39 = {
+  title: 'CD39⁺CD9⁺ lung interstitial macrophages suppress neutrophilic asthma by blocking NETosis',
+  journal: 'Nature Communications',
+  year: '2024',
+  doi: '10.1038/s41467-024-53038-2',
+  summary:
+    'Single-cell profiling uncovered a lung interstitial macrophage subset (CD39⁺CD9⁺) that restrains hard-to-treat neutrophilic asthma: the cells bind neutrophils through CD9 and use CD39 to degrade the ATP that drives neutrophil extracellular trap (NET) formation. Their numbers fall as asthma severity rises in patients, marking them as a therapeutic target.',
+  figure: 'p3-cd39cd9.jpg',
+  figcap: 'Transferred CD39⁺CD9⁺ interstitial macrophages suppress Th17-driven neutrophilic inflammation and NETs. — Nat Commun 2024 (CC BY)',
+};
+const cd47 = {
+  title: 'Airway epithelial CD47 drives influenza-mediated bacterial super-infection',
+  journal: 'Nature Communications',
+  year: '2024',
+  doi: '10.1038/s41467-024-47963-5',
+  summary:
+    'Influenza raises CD47 on the surface of airway epithelial cells, creating a docking site that <i>Staphylococcus aureus</i> uses to attach — explaining why the flu predisposes to dangerous secondary bacterial pneumonia. Blocking the CD47 interaction protected mice, identifying CD47 as a therapeutic target against post-influenza super-infection.',
+  figure: 'p5-cd47.jpg',
+  figcap: 'Model: influenza-induced epithelial CD47 provides an attachment site for S. aureus FnBP. — Nat Commun 2024 (CC BY)',
+};
+const nox4 = {
+  title: 'NOX4-mediated alveolar macrophage recruitment limits neutrophilic lung inflammation',
+  journal: 'Immune Network',
+  year: '2023',
+  doi: '10.4110/in.2023.23.e42',
+  summary:
+    'NADPH oxidase 4 (NOX4) drives recruitment of protective alveolar macrophages during <i>Staphylococcus aureus</i> lung infection, limiting damaging neutrophilic inflammation. S. aureus-induced VEGF signals through NOX4 to raise endothelial ICAM1, pulling macrophages into the airway to help resolve inflammation.',
+  figure: 'p7-nox4.jpg',
+  figcap: 'Model: S. aureus–VEGF–NOX4 raises endothelial ICAM1 to recruit protective alveolar macrophages. — Immune Network 2023 (CC BY-NC)',
+};
+
+const themes = [
   {
-    title: 'Intestinal dysbiosis from epithelial Fabp6 disruption exacerbates gut inflammation',
-    journal: 'Immune Network',
-    year: '2025',
-    doi: '10.4110/in.2025.25.e35',
-    summary:
-      'Deleting the intestinal bile-acid transporter <i>Fabp6</i> in mice reshapes the gut microbiome and bile-acid balance and makes the animals far more susceptible to colitis. Restoring the depleted commensal <i>Ligilactobacillus murinus</i> — or the bile acid TDCA — repaired the gut barrier and protected against disease, pointing toward microbe- and metabolite-based therapies for inflammatory bowel disease.',
-    figure: 'p1-fabp6.jpg',
-    figcap: 'Intestinal Fabp6 knockout shifts cecal bile acids and worsens DSS-induced colitis. — Immune Network 2025 (CC BY-NC)',
+    title: 'Skin microbiome',
+    tag: 'Current focus',
+    tagClass: 'current',
+    blurb:
+      'How skin commensal microbes shape the barrier and immune development — and how early-life microbial cues set the stage for allergic skin disease.',
+    papers: [skinReview, tslp],
   },
   {
-    title: 'Conversation between skin microbiota and the host: from early life to adulthood',
-    journal: 'Experimental & Molecular Medicine',
-    year: '2025',
-    doi: '10.1038/s12276-025-01427-y',
-    summary:
-      'A review of how skin commensal microbiota communicate with the host from early life to adulthood — shaping the skin barrier, immune development, and the balance between healthy homeostasis and inflammatory disease.',
-    figure: 'p2-skin-review.jpg',
-    figcap: 'How skin microbes and their metabolites tune barrier function and homeostasis via AhR signaling. — Exp & Mol Med 2025 (CC BY)',
+    title: 'Gut microbiome & the gut–brain axis',
+    tag: 'Current focus',
+    tagClass: 'current',
+    blurb:
+      'How the gut microbial ecosystem and its metabolites support intestinal homeostasis and tissue programs — extending toward the enteric nervous system and the gut–brain axis.',
+    papers: [fabp6],
   },
   {
-    title: 'CD39⁺CD9⁺ lung interstitial macrophages suppress neutrophilic asthma by blocking NETosis',
-    journal: 'Nature Communications',
-    year: '2024',
-    doi: '10.1038/s41467-024-53038-2',
-    summary:
-      'Single-cell profiling uncovered a lung interstitial macrophage subset (CD39⁺CD9⁺) that restrains hard-to-treat neutrophilic asthma: the cells bind neutrophils through CD9 and use CD39 to degrade the ATP that drives neutrophil extracellular trap (NET) formation. Their numbers fall as asthma severity rises in patients, marking them as a therapeutic target.',
-    figure: 'p3-cd39cd9.jpg',
-    figcap: 'Transferred CD39⁺CD9⁺ interstitial macrophages suppress Th17-driven neutrophilic inflammation and NETs. — Nat Commun 2024 (CC BY)',
-  },
-  {
-    title: 'Airway epithelial CD47 drives influenza-mediated bacterial super-infection',
-    journal: 'Nature Communications',
-    year: '2024',
-    doi: '10.1038/s41467-024-47963-5',
-    summary:
-      'Influenza raises CD47 on the surface of airway epithelial cells, creating a docking site that <i>Staphylococcus aureus</i> uses to attach — explaining why the flu predisposes to dangerous secondary bacterial pneumonia. Blocking the CD47 interaction protected mice, identifying CD47 as a therapeutic target against post-influenza super-infection.',
-    figure: 'p5-cd47.jpg',
-    figcap: 'Model: influenza-induced epithelial CD47 provides an attachment site for S. aureus FnBP. — Nat Commun 2024 (CC BY)',
-  },
-  {
-    title: 'A skin microbe–dependent TSLP–ILC2 priming axis in early life is co-opted in allergy',
-    journal: 'Cell Host & Microbe',
-    year: '2024',
-    doi: '10.1016/j.chom.2023.12.006',
-    summary:
-      'Early-life colonization of the skin by <i>Staphylococcus</i> commensals induces keratinocyte TSLP that primes skin group-2 innate lymphoid cells (ILC2s) during a narrow postnatal window. This same axis is later co-opted to amplify atopic-dermatitis-like allergic inflammation, linking the timing of neonatal microbial exposure to later allergic disease.',
-    figure: 'p6-tslp-ilc2.jpg',
-    figcap: 'Graphical abstract: early-life Staphylococcus-driven TSLP→ILC2 priming, later co-opted in allergy. — Cell Host & Microbe 2024',
-  },
-  {
-    title: 'NOX4-mediated alveolar macrophage recruitment limits neutrophilic lung inflammation',
-    journal: 'Immune Network',
-    year: '2023',
-    doi: '10.4110/in.2023.23.e42',
-    summary:
-      'NADPH oxidase 4 (NOX4) drives recruitment of protective alveolar macrophages during <i>Staphylococcus aureus</i> lung infection, limiting damaging neutrophilic inflammation. S. aureus-induced VEGF signals through NOX4 to raise endothelial ICAM1, pulling macrophages into the airway to help resolve inflammation.',
-    figure: 'p7-nox4.jpg',
-    figcap: 'Model: S. aureus–VEGF–NOX4 raises endothelial ICAM1 to recruit protective alveolar macrophages. — Immune Network 2023 (CC BY-NC)',
+    title: 'Airway & lung immunity',
+    tag: 'Foundational',
+    tagClass: 'foundational',
+    blurb:
+      'Earlier work defining how lung macrophages and the airway epithelium control infection and neutrophilic inflammation.',
+    papers: [cd39, cd47, nox4],
   },
 ];
 ---
@@ -107,35 +133,47 @@ const highlights = [
         <p class="eyebrow">Selected work</p>
         <h2 class="section-title">Research highlights</h2>
       </div>
-      <p class="section-note">Recent findings from the lab's publications, each summarized with a key figure. Follow any entry to the full paper.</p>
+      <p class="section-note">Findings from the lab's publications, grouped by theme. The current focus is the skin microbiome and the gut microbiome–gut–brain axis, building on earlier work in airway and lung immunity.</p>
     </div>
 
-    <div class="highlight-list">
-      {
-        highlights.map((h) => (
-          <article class={`highlight${h.figure ? '' : ' no-figure'}`}>
-            {h.figure && (
-              <figure class="highlight-media">
-                <span class="highlight-frame">
-                  <img src={fig(h.figure)} alt={`Key figure — ${h.title}`} loading="lazy" decoding="async" />
-                </span>
-                <figcaption class="highlight-figcap">{h.figcap}</figcaption>
-              </figure>
-            )}
-            <div class="highlight-body">
-              <p class="highlight-meta">{h.journal} · {h.year}</p>
-              <h3>{h.title}</h3>
-              <p set:html={h.summary} />
-              <div class="link-row">
-                <a href={`https://doi.org/${h.doi}`} target="_blank" rel="noreferrer">Read the paper</a>
-              </div>
+    {
+      themes.map((theme) => (
+        <div class="research-theme">
+          <div class="theme-head">
+            <div class="theme-titlerow">
+              <h3 class="theme-title">{theme.title}</h3>
+              <span class={`theme-tag ${theme.tagClass}`}>{theme.tag}</span>
             </div>
-          </article>
-        ))
-      }
-    </div>
+            <p class="theme-blurb">{theme.blurb}</p>
+          </div>
 
-    <div class="link-row" style="margin-top: 28px;">
+          <div class="highlight-list">
+            {theme.papers.map((h) => (
+              <article class={`highlight${h.figure ? '' : ' no-figure'}`}>
+                {h.figure && (
+                  <figure class="highlight-media">
+                    <span class="highlight-frame">
+                      <img src={fig(h.figure)} alt={`Key figure — ${h.title}`} loading="lazy" decoding="async" />
+                    </span>
+                    <figcaption class="highlight-figcap">{h.figcap}</figcaption>
+                  </figure>
+                )}
+                <div class="highlight-body">
+                  <p class="highlight-meta">{h.journal} · {h.year}</p>
+                  <h4 class="highlight-title">{h.title}</h4>
+                  <p set:html={h.summary} />
+                  <div class="link-row">
+                    <a href={`https://doi.org/${h.doi}`} target="_blank" rel="noreferrer">Read the paper</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+
+    <div class="link-row" style="margin-top: 32px;">
       <a href={base + 'publications/'}>See all publications</a>
     </div>
   </section>
