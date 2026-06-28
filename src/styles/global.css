@@ -577,11 +577,13 @@ button:focus-visible {
 /* ---------- members grid ---------- */
 .team-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; margin-bottom: 20px; }
 
-.people-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.people-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* member card: small portrait on the left, details on the right (ref-style) */
 .mini-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  column-gap: 18px;
+  align-items: start;
   height: 100%;
   padding: 18px;
   border: 1px solid var(--line);
@@ -590,12 +592,12 @@ button:focus-visible {
   transition: border-color var(--ease), transform var(--ease);
 }
 .mini-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.mini-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .member-photo {
   display: grid;
   place-items: center;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  margin-bottom: 14px;
+  width: 116px;
+  aspect-ratio: 5 / 6;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--soft);
@@ -604,7 +606,7 @@ button:focus-visible {
 .member-photo img { width: 100%; height: 100%; object-fit: cover; }
 .member-photo-placeholder {
   color: var(--faint);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
