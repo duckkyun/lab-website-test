@@ -48,12 +48,13 @@ const jsonLd = {
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <!-- Favicons: SVG for modern browsers, PNG fallbacks, .ico for legacy,
-         apple-touch-icon for iOS home-screen. -->
-    <link rel="icon" type="image/svg+xml" href={base + 'favicon/favicon.svg'} />
+    <!-- Favicons: raster (.ico/.png) declared first so Safari's address-bar
+         favicon picks up a format it always supports; SVG offered after as a
+         progressive enhancement for browsers that prefer it; apple-touch for iOS. -->
+    <link rel="icon" href={base + 'favicon.ico'} sizes="32x32" />
     <link rel="icon" type="image/png" sizes="32x32" href={base + 'favicon/favicon-32.png'} />
     <link rel="icon" type="image/png" sizes="16x16" href={base + 'favicon/favicon-16.png'} />
-    <link rel="icon" href={base + 'favicon.ico'} sizes="any" />
+    <link rel="icon" type="image/svg+xml" href={base + 'favicon/favicon.svg'} />
     <link rel="apple-touch-icon" sizes="180x180" href={base + 'favicon/favicon-180.png'} />
 
     <!-- Open Graph / Twitter -->
