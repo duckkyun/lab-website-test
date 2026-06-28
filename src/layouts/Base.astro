@@ -48,7 +48,13 @@ const jsonLd = {
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href={base + 'favicon.ico'} />
+    <!-- Favicons: SVG for modern browsers, PNG fallbacks, .ico for legacy,
+         apple-touch-icon for iOS home-screen. -->
+    <link rel="icon" type="image/svg+xml" href={base + 'favicon/favicon.svg'} />
+    <link rel="icon" type="image/png" sizes="32x32" href={base + 'favicon/favicon-32.png'} />
+    <link rel="icon" type="image/png" sizes="16x16" href={base + 'favicon/favicon-16.png'} />
+    <link rel="icon" href={base + 'favicon.ico'} sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href={base + 'favicon/favicon-180.png'} />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
