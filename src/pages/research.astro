@@ -6,17 +6,18 @@ const fig = (f) => base + 'images/research/' + f;
 
 // Publication-derived highlights, grouped by research theme. Current focus:
 // skin microbiome + gut microbiome / gut–brain axis. Earlier foundational
-// work: airway & lung immunity. Figures are from the open-access versions
-// (license noted per caption); the paywalled let-7a letter is omitted.
+// work: airway & lung immunity. Most figures are from the open-access versions
+// (license noted per caption); the let-7a (AJRCMB) figure is a single panel
+// from the lab's own letter (ATS, not CC) — credited by journal in its caption.
 const skinReview = {
   title: 'Conversation between skin microbiota and the host: from early life to adulthood',
   journal: 'Experimental & Molecular Medicine',
   year: '2025',
   doi: '10.1038/s12276-025-01427-y',
   summary:
-    'A review of how skin commensal microbiota communicate with the host from early life to adulthood — shaping the skin barrier, immune development, and the balance between healthy homeostasis and inflammatory disease.',
+    'Skin commensal microbiota are in constant conversation with the host from early life to adulthood — shaping the skin barrier, immune development, and the balance between homeostasis and inflammatory disease.',
   figure: 'p2-skin-review.jpg',
-  figcap: 'How skin microbes and their metabolites tune barrier function and homeostasis via AhR signaling. — Exp & Mol Med 2025 (CC BY)',
+  figcap: 'How skin microbes and their metabolites tune barrier function and homeostasis via AhR (aryl hydrocarbon receptor) signaling. — Exp & Mol Med 2025 (CC BY)',
 };
 const tslp = {
   title: 'A skin microbe–dependent TSLP–ILC2 priming axis in early life is co-opted in allergy',
@@ -24,9 +25,9 @@ const tslp = {
   year: '2024',
   doi: '10.1016/j.chom.2023.12.006',
   summary:
-    'Early-life colonization of the skin by <i>Staphylococcus</i> commensals induces keratinocyte TSLP that primes skin group-2 innate lymphoid cells (ILC2s) during a narrow postnatal window. This same axis is later co-opted to amplify atopic-dermatitis-like allergic inflammation, linking the timing of neonatal microbial exposure to later allergic disease.',
+    'Early-life colonization of the skin by <i>Staphylococcus</i> commensals induces keratinocyte TSLP (an epithelial alarm signal) that primes skin group-2 innate lymphoid cells (ILC2s) during a narrow postnatal window. This same axis is later co-opted to amplify atopic-dermatitis-like allergic inflammation, linking the timing of neonatal microbial exposure to later allergic disease.',
   figure: 'p6-tslp-ilc2.jpg',
-  figcap: 'Graphical abstract: early-life Staphylococcus-driven TSLP→ILC2 priming, later co-opted in allergy. — Cell Host & Microbe 2024',
+  figcap: 'Early-life Staphylococcus-driven TSLP–ILC2 priming, later co-opted in allergy. — Cell Host & Microbe 2024',
 };
 const fabp6 = {
   title: 'Intestinal dysbiosis from epithelial Fabp6 disruption exacerbates gut inflammation',
@@ -34,9 +35,9 @@ const fabp6 = {
   year: '2025',
   doi: '10.4110/in.2025.25.e35',
   summary:
-    'Deleting the intestinal bile-acid transporter <i>Fabp6</i> in mice reshapes the gut microbiome and bile-acid balance and makes the animals far more susceptible to colitis. Restoring the depleted commensal <i>Ligilactobacillus murinus</i> — or the bile acid TDCA — repaired the gut barrier and protected against disease, pointing toward microbe- and metabolite-based therapies for inflammatory bowel disease.',
+    'Deleting the intestinal bile-acid-binding protein <i>Fabp6</i> in mice reshapes the gut microbiome and bile-acid balance and makes the animals far more susceptible to colitis. Restoring the depleted commensal <i>Ligilactobacillus murinus</i> — or the bile acid TDCA — repaired the gut barrier and protected against disease, pointing toward microbe- and metabolite-based therapies for inflammatory bowel disease.',
   figure: 'p1-fabp6.jpg',
-  figcap: 'Shorter colons in Fabp6-knockout mice after DSS reflect more severe colitis. — Immune Network 2025 (CC BY-NC)',
+  figcap: 'Shorter colons in Fabp6-knockout mice after DSS (chemically induced colitis) reflect more severe disease. — Immune Network 2025 (CC BY-NC)',
 };
 const cd39 = {
   title: 'CD39⁺CD9⁺ lung interstitial macrophages suppress neutrophilic asthma by blocking NETosis',
@@ -46,7 +47,7 @@ const cd39 = {
   summary:
     'Single-cell profiling uncovered a lung interstitial macrophage subset (CD39⁺CD9⁺) that restrains hard-to-treat neutrophilic asthma: the cells bind neutrophils through CD9 and use CD39 to degrade the ATP that drives neutrophil extracellular trap (NET) formation. Their numbers fall as asthma severity rises in patients, marking them as a therapeutic target.',
   figure: 'p3-cd39cd9.jpg',
-  figcap: 'Model: CD39⁺CD9⁺ macrophages adhere to neutrophils via CD9 and hydrolyze ATP via CD39 to suppress NETosis in the IL-23/Th17 circuit. — Nat Commun 2024 (CC BY, Suppl. Fig. 12)',
+  figcap: 'CD39⁺CD9⁺ macrophages adhere to neutrophils via CD9 and hydrolyze ATP via CD39 to suppress NET formation in the IL-23/Th17 circuit. — Nat Commun 2024 (CC BY)',
 };
 const cd47 = {
   title: 'Airway epithelial CD47 drives influenza-mediated bacterial super-infection',
@@ -56,7 +57,7 @@ const cd47 = {
   summary:
     'Influenza raises CD47 on the surface of airway epithelial cells, creating a docking site that <i>Staphylococcus aureus</i> uses to attach — explaining why the flu predisposes to dangerous secondary bacterial pneumonia. Blocking the CD47 interaction protected mice, identifying CD47 as a therapeutic target against post-influenza super-infection.',
   figure: 'p5-cd47.jpg',
-  figcap: 'Model: influenza-induced epithelial CD47 provides an attachment site for S. aureus FnBP. — Nat Commun 2024 (CC BY)',
+  figcap: 'Influenza-induced epithelial CD47 provides an attachment site for S. aureus FnBP. — Nat Commun 2024 (CC BY)',
 };
 const nox4 = {
   title: 'NOX4-mediated alveolar macrophage recruitment limits neutrophilic lung inflammation',
@@ -64,9 +65,19 @@ const nox4 = {
   year: '2023',
   doi: '10.4110/in.2023.23.e42',
   summary:
-    'NADPH oxidase 4 (NOX4) drives recruitment of protective alveolar macrophages during <i>Staphylococcus aureus</i> lung infection, limiting damaging neutrophilic inflammation. S. aureus-induced VEGF signals through NOX4 to raise endothelial ICAM1, pulling macrophages into the airway to help resolve inflammation.',
+    'NADPH oxidase 4 (NOX4) drives recruitment of protective alveolar macrophages during <i>Staphylococcus aureus</i> lung infection, limiting damaging neutrophilic inflammation. S. aureus-induced VEGF signals through NOX4 to raise endothelial ICAM1, pulling macrophages into the alveoli to help resolve inflammation.',
   figure: 'p7-nox4.jpg',
-  figcap: 'Model: S. aureus–VEGF–NOX4 raises endothelial ICAM1 to recruit protective alveolar macrophages. — Immune Network 2023 (CC BY-NC)',
+  figcap: 'S. aureus–VEGF–NOX4 raises endothelial ICAM1 to recruit protective alveolar macrophages. — Immune Network 2023 (CC BY-NC)',
+};
+const let7a = {
+  title: 'Let-7a-5p inhibits IL-4–induced MUC5AC mucus hypersecretion and is carried in nasal-lavage extracellular vesicles',
+  journal: 'American Journal of Respiratory Cell and Molecular Biology',
+  year: '2024',
+  doi: '10.1165/rcmb.2023-0268LE',
+  summary:
+    'Profiling extracellular vesicles (EVs) in the nasal-lavage fluid of allergic-rhinitis patients revealed that the microRNA let-7a-5p is packaged into airway EVs. Restoring let-7a-5p suppressed IL-4–induced expression of the MUC5AC mucin by directly targeting its transcript, revealing an EV-borne brake on allergic airway mucus hypersecretion.',
+  figure: 'p4-let7a.jpg',
+  figcap: 'IL-4 raises MUC5AC (red) in airway epithelial cells, and let-7a-5p suppresses it. — Am J Respir Cell Mol Biol 2024',
 };
 
 const themes = [
@@ -91,8 +102,8 @@ const themes = [
     tag: 'Foundational',
     tagClass: 'foundational',
     blurb:
-      'Earlier work defining how lung macrophages and the airway epithelium control infection and neutrophilic inflammation.',
-    papers: [cd39, cd47, nox4],
+      'Earlier work defining how lung macrophages and the airway epithelium control infection, neutrophilic inflammation, and allergic mucus production.',
+    papers: [cd39, cd47, nox4, let7a],
   },
 ];
 ---
@@ -113,13 +124,13 @@ const themes = [
         <p class="eyebrow">Vision</p>
         <h2 class="section-title">Principal research interests</h2>
       </div>
-      <p class="section-note">This section outlines the scientific vision that connects the lab's microbiome research platforms, mechanistic questions, and long-term goals.</p>
+      <p class="section-note">One question runs through the lab's work: how do co-evolved commensal communities at the gut and skin barriers program host immunity and tissue development?</p>
     </div>
 
     <div class="panel accent-panel">
-      <p>The mammalian gut harbors a remarkably diverse community of commensal microbes that far outnumber host cells. A major goal of the lab is to understand how this co-evolved microbial ecosystem supports host immune homeostasis and contributes to the development and maintenance of tissue programs, including the enteric nervous system.</p>
-      <p>As part of this long-term research direction, Professor Ji-Hwan Ryu first developed Drosophila gnotobiotic animal model systems and used them to reveal foundational mechanisms in host-microbiome interactions, including the work reported in <i>Science</i> (2008). As an independent principal investigator, he further expanded the field by developing experimental platforms such as germ-free and gnotobiotic mouse systems colonized with defined commensal microbes, as well as models of gut and skin dysbiosis-driven inflammatory disease, including work highlighted in <i>Cell Host &amp; Microbe</i> (2024).</p>
-      <p>Looking ahead, the lab aims to identify and functionally define tissue-resident cell populations whose development and differentiation are regulated by gut and skin commensal microbiota. Defining how these cells influence host homeostasis and disease remains a major focus of the group's future research.</p>
+      <p>The mammalian gut harbors a remarkably diverse community of commensal microbes whose cells rival the host's own in number. A major goal of the lab is to understand how this co-evolved microbial ecosystem supports host immune homeostasis and contributes to the development and maintenance of tissue programs, including the enteric nervous system.</p>
+      <p>Professor Ji-Hwan Ryu first developed <i>Drosophila</i> gnotobiotic (defined-microbe) model systems and used them to uncover mechanisms of host-microbiome interaction, including the work reported in <i>Science</i> (2008). As an independent principal investigator, he developed experimental platforms such as germ-free and gnotobiotic mouse systems colonized with defined commensal microbes, as well as models of gut and skin dysbiosis-driven inflammatory disease, including work highlighted in <i>Cell Host &amp; Microbe</i> (2024).</p>
+      <p>Looking ahead, the lab aims to identify and functionally define tissue-resident cell populations whose development and differentiation are regulated by gut and skin commensal microbiota. Defining how these cells influence host homeostasis and disease remains a major focus of the lab's future research.</p>
       <div class="link-row">
         <a href={base + 'docs/ji-hwan-ryu-cv.pdf'} target="_blank" rel="noreferrer">View CV (PDF)</a>
         <a href={base + 'publications/'}>See publications</a>
@@ -133,7 +144,7 @@ const themes = [
         <p class="eyebrow">Selected work</p>
         <h2 class="section-title">Research highlights</h2>
       </div>
-      <p class="section-note">Findings from the lab's publications, grouped by theme. The current focus is the skin microbiome and the gut microbiome–gut–brain axis, building on earlier work in airway and lung immunity.</p>
+      <p class="section-note">The current focus is the skin microbiome and the gut microbiome–gut–brain axis, building on earlier work in airway and lung immunity.</p>
     </div>
 
     {
