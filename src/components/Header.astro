@@ -12,10 +12,25 @@ const isActive = (href: string) => {
 
 <header class="site-header">
   <div class="header-shell">
-    <div class="brand">
-      <h1 class="brand-title"><a href={base}>{SITE.title}</a></h1>
-      <p class="brand-subtitle">{SITE.subtitle}</p>
-    </div>
+    <h1 class="brand">
+      <a href={base} aria-label={SITE.title}>
+        <img
+          class="brand-logo is-light"
+          src={base + 'images/ryuniverse-logo.png'}
+          alt={SITE.title}
+          width="369"
+          height="97"
+        />
+        <img
+          class="brand-logo is-dark"
+          src={base + 'images/ryuniverse-logo-dark.png'}
+          alt=""
+          aria-hidden="true"
+          width="369"
+          height="97"
+        />
+      </a>
+    </h1>
 
     <div class="header-actions">
       <nav id="site-menu" class="site-menu" aria-label="Primary">
