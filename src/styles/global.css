@@ -146,12 +146,23 @@ button:focus-visible {
 }
 
 .brand { margin: 0; min-width: 0; display: flex; align-items: center; }
-.brand a { display: inline-flex; align-items: center; text-decoration: none; }
-.brand-logo { display: block; height: 46px; width: auto; }
+.brand a { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand-logo { display: block; height: 40px; width: auto; }
 /* theme-swapped logo: navy wordmark on light, off-white on dark */
 .brand-logo.is-dark { display: none; }
 :root[data-theme="dark"] .brand-logo.is-light { display: none; }
 :root[data-theme="dark"] .brand-logo.is-dark { display: block; }
+/* vertical rule + tagline lockup to the right of the wordmark */
+.brand-divider { width: 1px; align-self: stretch; min-height: 30px; background: var(--line-strong); }
+.brand-tagline {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
 .header-actions {
   grid-column: 2;
@@ -746,9 +757,16 @@ footer { border-top: 1px solid var(--line); background: var(--soft); }
   .button { width: 100%; }
 }
 
+/* tight band: horizontal nav is shown (>=961) but there isn't room for the
+   full wordmark+tagline lockup next to it — drop the tagline, keep wordmark */
+@media (min-width: 961px) and (max-width: 1099px) {
+  .brand-divider, .brand-tagline { display: none; }
+}
+
 @media (max-width: 560px) {
-  /* shrink the brand logo on small headers */
-  .brand-logo { height: 38px; }
+  /* declutter the mobile header — wordmark only */
+  .brand-logo { height: 30px; }
+  .brand-divider, .brand-tagline { display: none; }
   .header-shell { gap: 12px; }
 }
 
