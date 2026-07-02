@@ -3,7 +3,8 @@
 Website for Ryu Lab — Department of Biomedical Sciences, Yonsei University College
 of Medicine. We study microbiome, immune homeostasis, and tissue-resident cell biology.
 
-Live: https://duckkyun.github.io/lab-website-test/
+Live (GitHub Pages): `https://<owner>.github.io/<repo>/` — the URL is derived from
+the repo at build time, so it follows a rename or account transfer automatically.
 
 If you find any problems on the site or want something changed, feel free to contact me.
 Address: duckkyun29@gmail.com
@@ -19,7 +20,7 @@ Address: duckkyun29@gmail.com
 
 ```bash
 npm install
-npm run dev            # http://localhost:4321/lab-website-test/
+npm run dev            # http://localhost:4321/ryulab/
 npm run dev -- --host  # also expose on the LAN for phone testing
 npm run build          # output to dist/
 npm run preview        # preview the production build
@@ -36,12 +37,15 @@ src/
   styles/global.css       design tokens + components (light/dark)
   styles/fonts/           Pretendard woff2 (fingerprinted by the build)
 public/                   favicon, images, docs (served as-is)
-astro.config.mjs          site/base config (base = /lab-website-test)
+astro.config.mjs          site/base config (reads BASE_PATH / SITE_URL from the build env)
 ```
 
-This is a GitHub Pages **project** site served under `/lab-website-test`, so
-`astro.config.mjs` sets `base: '/lab-website-test'`. To move to a root domain
-(Netlify / Vercel / Cloudflare / custom domain) later, build with `BASE_PATH=""`.
+`site` and `base` are injected by the deploy workflow, which derives them from
+the GitHub repo at build time (see `.github/workflows/deploy.yml`). A project
+repo `<name>` is served under `/<name>/`; a repo named `<owner>.github.io` is
+served at the root. Because nothing is hardcoded, renaming the repo or
+transferring it to another account needs no code change. For local dev the
+defaults in `astro.config.mjs` are used (`base: '/ryulab'`).
 
 ## Acknowledgement
 

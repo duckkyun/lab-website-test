@@ -23,7 +23,7 @@ Three things to understand, and you understand the whole site:
 
 | # | File | What you learn |
 |---|------|----------------|
-| 1 | `astro.config.mjs` | Project config (tiny). Why `base: '/lab-website-test'` is needed for GitHub Pages, plus the sitemap integration. |
+| 1 | `astro.config.mjs` | Project config (tiny). Why a `base` path is needed for GitHub Pages (read from `BASE_PATH`/`SITE_URL` at build time), plus the sitemap integration. |
 | 2 | `src/consts.ts` | Site title, nav items, maintainer email — **all site-wide text in one place**. |
 | 3 | `src/layouts/Base.astro` | **Most important.** How every page is assembled: `<head>` + SEO/OG meta, the dark-mode toggle script, font preloading, and the header/footer slots. |
 | 4 | `src/components/Header.astro`, `Footer.astro` | The shared chrome — change once, every page updates. |
@@ -52,7 +52,7 @@ pattern as `index.astro`** — read one and you can read them all.
 ```bash
 npm install
 git checkout -b my-tweaks      # work on a branch, not main
-npm run dev                    # http://localhost:4321/lab-website-test/
+npm run dev                    # http://localhost:4321/ryulab/
                                # save a file → the browser updates instantly
 npm run dev -- --host          # also reachable from your phone on the same Wi-Fi
 npm run build                  # production build into dist/
@@ -72,8 +72,9 @@ transition issues. Read it when you wonder "why is it done this way?".
 
 - **Base paths:** internal links and assets are prefixed with
   `import.meta.env.BASE_URL` (e.g. `{base + 'research/'}`) so they work under the
-  `/lab-website-test` subpath. To move to a root domain later, build with
-  `BASE_PATH=""`.
+  Pages subpath. The subpath (`base`) and absolute origin (`site`) come from the
+  deploy workflow, which derives them from the repo — so a rename or transfer
+  needs no code change. A repo named `<owner>.github.io` is served at the root.
 - **Theme:** an inline script in `Base.astro`'s `<head>` applies the saved/system
   theme before first paint (no flash). The toggle and mobile menu use one
   delegated click handler on `document`.

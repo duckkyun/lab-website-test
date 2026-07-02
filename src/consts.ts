@@ -1,12 +1,17 @@
 // Single source of truth for site-wide metadata and navigation.
 
+// GitHub Actions sets GITHUB_REPOSITORY to "owner/repo", so the repo links below
+// follow a rename or account transfer automatically. The fallback is only used
+// for local dev (where the links aren't user-facing).
+const repoSlug = process.env.GITHUB_REPOSITORY ?? 'duckkyun/lab-website-test';
+
 export const SITE = {
   title: 'Ryu Lab',
   subtitle: 'Department of Biomedical Sciences, Yonsei University College of Medicine',
   description:
     'Ryu Lab studies microbiome, immune homeostasis, and tissue-resident cell biology at Yonsei University College of Medicine.',
-  repo: 'https://github.com/duckkyun/lab-website-test',
-  issues: 'https://github.com/duckkyun/lab-website-test/issues/new',
+  repo: `https://github.com/${repoSlug}`,
+  issues: `https://github.com/${repoSlug}/issues/new`,
   maintainerEmail: 'duckkyun29@gmail.com',
 } as const;
 

@@ -36,8 +36,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Derive the site URL and base path from the repo itself, so renaming the
+      # repo or transferring it to another account needs no code change.
+      #   • repo "<owner>.github.io" → served at the root       → BASE_PATH="/"
+      #   • any other repo "<name>"  → served under /<name>/     → BASE_PATH="/<name>"
+      - name: Resolve Pages URL layout
+        id: urls
+        run: |
+          owner="${GITHUB_REPOSITORY%%/*}"
+          repo="${GITHUB_REPOSITORY##*/}"
+          owner_lc="$(echo "$owner" | tr '[:upper:]' '[:lower:]')"
+          if [ "$repo" = "${owner_lc}.github.io" ]; then
+            echo "base=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "base=/$repo" >> "$GITHUB_OUTPUT"
+          fi
+          echo "site=https://${owner_lc}.github.io" >> "$GITHUB_OUTPUT"
+
       - name: Build
         run: npm run build
+        env:
+          BASE_PATH: ${{ steps.urls.outputs.base }}
+          SITE_URL: ${{ steps.urls.outputs.site }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

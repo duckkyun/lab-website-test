@@ -2,11 +2,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Project page on GitHub Pages → served under /lab-website-test.
-// To move to a root domain (Netlify/Vercel/Cloudflare/custom domain) later,
-// set BASE_PATH="" in the build env; everything else stays portable.
-const base = process.env.BASE_PATH ?? '/lab-website-test';
-const site = process.env.SITE_URL ?? 'https://duckkyun.github.io';
+// URL layout is injected by the deploy workflow (.github/workflows/deploy.yml),
+// which derives BASE_PATH and SITE_URL from the GitHub repo at build time — so
+// renaming the repo or transferring it to another account needs no code change:
+//   • project repo  "<name>"           → served under /<name>/
+//   • user/org repo "<owner>.github.io" → served at the root, BASE_PATH="/"
+// The defaults below are only for local `npm run dev` / `npm run build`.
+const base = process.env.BASE_PATH ?? '/ryulab';
+const site = process.env.SITE_URL ?? 'https://ryulab.github.io';
 
 export default defineConfig({
   site,
